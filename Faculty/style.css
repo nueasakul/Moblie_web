@@ -1,0 +1,523 @@
+/* =========================================
+   FACULTY PROFILE GRID (ส่วนแสดงผลบุคลากร)
+   ========================================= */
+
+.faculty-section {
+    padding: 50px;
+    padding-top: 130px;
+    background-color: #f9f9f9; /* พื้นหลังรวมสีเทาอ่อนๆ */
+}
+
+/* --- The Grid System (พระเอกของเรา) --- */
+.profile-grid {
+    display: flex;
+    flex-wrap: wrap;        /* สั่งให้ตกบรรทัดถ้าที่เต็ม */
+    justify-content: center; /* พระเอกขี่ม้าขาว: สั่งทุกอย่างจัดกึ่งกลาง! */
+    gap: 50px;              /* ระยะห่าง */
+    padding: 20px 0;
+}
+
+/* --- กำหนดขนาดการ์ดให้แน่นอน (เพื่อให้ Flex คำนวณถูก) --- */
+.profile-card {
+    width: 300px;  /* ล็อกความกว้างการ์ดไว้ที่ 220px (ขนาดกำลังดี) */
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ลูกเล่นตอนเอาเมาส์ชี้ */
+.profile-card:hover {
+    transform: translateY(-10px); /* ลอยขึ้นนิดนึง */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* --- ส่วนรูปภาพ --- */
+.card-image {
+    margin-top: 20px;
+    width: 135px;
+    height: 150px;
+    border-radius: 50%; /* ทำเป็นวงกลม */
+    overflow: hidden;
+    border: 5px solid #fff; /* ขอบขาวรอบรูป */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* เงาใต้รูป */
+}
+
+.card-image img {
+    width: 100%;
+    height: 110%;
+    object-fit: cover; /* บังคับรูปให้เต็มวงกลมโดยไม่เบี้ยว */
+}
+
+/* --- เนื้อหาชื่อ --- */
+.card-content {
+    padding: 15px;
+    flex-grow: 1; /* ดันส่วนนี้ให้ยืดเต็มพื้นที่ เพื่อกดปุ่ม Role ลงล่างสุด */
+}
+
+.thai-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 8px;
+}
+
+/* เส้นขีดส้ม */
+.divider-line {
+    width: 150px; /* ความยาวเส้น */
+    height: 4px; /* ความหนาเส้น */
+    background-color: #ff9800; /* สีส้ม */
+    margin: 0 auto 15px auto; /* จัดกึ่งกลาง */
+    border-radius: 2px;
+}
+
+.eng-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* --- แถบตำแหน่ง (ด้านล่างสุด) --- */
+.card-role {
+    width: 100%;
+    height: 60px;
+    background-color: #e0e0e0; /* สีเทาพื้นหลัง */
+    color: #5d4037; /* สีตัวหนังสือ (ออกน้ำตาลไหม้ตามรูป) */
+    font-weight: 700;
+    font-size: 15px;
+    padding: 10px 0;
+    margin-top: auto; /* ดันตัวเองลงล่างสุดเสมอ */
+    /* border-radius: 15px; */
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: #333; /* สีพื้นหลัง */
+    
+    /* Sticky Footer Setup: ดัน Footer ลงล่างเสมอ */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; /* ส่วนเนื้อหาจะขยายเต็มพื้นที่ว่าง */
+}
+
+/* --- Layout Utilities --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* คลาสสำหรับหน้า Home (Demo) */
+.home-demo {
+    height: 2000px;      /* ความสูงหลอกๆ เพื่อให้มีพื้นที่เลื่อน */
+    padding-top: 150px;  /* ดันเนื้อหาลงมา ไม่ให้โดน Header บัง */
+    text-align: center;  /* จัดข้อความกึ่งกลาง */
+    text-align: center;  /* จัดข้อความกึ่งกลาง */
+}
+/* =========================================
+   2. HEADER & NAVIGATION (ส่วนหัวและเมนู)
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F9A848;
+    padding: 10px 40px;
+    height: 80px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
+    /* Fixed Position */
+    position: fixed;
+    top: 0; 
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.3s ease-in-out;
+}
+
+.logo img {
+    height: 50px;
+    object-fit: contain;
+}
+
+/* --- Menu List --- */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2px;
+    position: relative;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 20px 10px;
+    border-radius: 8px;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #fff;
+    background-color: rgba(255, 123, 0, 0.658);
+}
+
+.arrow {
+    font-size: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+
+/* =========================================
+   3. DROPDOWN MENU (เมนูย่อย)
+   ========================================= */
+.dropdown { 
+    position: relative; 
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* ให้ติดขอบล่างปุ่มแม่พอดี */
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    min-width: 250px;
+    list-style: none;
+    padding: 10px 0;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu { 
+    display: block; 
+}
+
+.dropdown-menu li a {
+    color: #333;
+    padding: 10px 20px;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f1f1f1;
+    color: #F9A848;
+}
+
+/* Dropdown ชิดขวา */
+.dropdown-right .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+/* สะพานล่องหนกันเมนูหายตอนเลื่อนเมาส์ */
+.dropdown-menu::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    top: -20px;
+    left: 0;
+    background-color: transparent;
+}
+
+
+/* =========================================
+   4. FOOTER (ส่วนท้ายเว็บ)
+   ========================================= */
+footer {
+    background-color: #F9A848;
+    padding: 20px 0; /* Compact size */
+    color: #000;
+    margin-top: auto; 
+    font-size: 14px;
+}
+
+/* --- Footer Top (Logo & Social) --- */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-logo img {
+    height: 35px;
+    object-fit: contain;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 16px;
+    margin-left: 10px;
+    width: 30px; 
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+}
+.social-icons a:nth-child(1) { background-color: #1877F2; }
+.social-icons a:nth-child(2) { background-color: #E4405F; }
+
+/* --- Footer Divider --- */
+.footer-line {
+    border: none;
+    border-top: 1px solid #333;
+    margin-bottom: 15px;
+    opacity: 0.3;
+}
+
+/* --- Footer Bottom (Content) --- */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-col { flex: 1; }
+
+.footer-col h3 {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.footer-col p {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+/* --- Contact Info --- */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.contact-item i {
+    width: 20px;
+    font-size: 14px;
+    margin-top: 3px; 
+}
+
+
+/* =========================================
+   5. RESPONSIVE & MOBILE (ส่วนแสดงผลมือถือ)
+   ========================================= */
+
+/* --- ปุ่ม Hamburger (ซ่อนใน Desktop) --- */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-icon span {
+    width: 25px; 
+    height: 3px; 
+    background-color: #000;
+    transition: 0.3s;
+}
+
+/* --- Footer Responsive (Tablet/Mobile) --- */
+@media (max-width: 768px) {
+    .footer-bottom, .footer-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    .footer-line { margin: 15px 0; }
+    .social-icons { margin-top: 10px; }
+    .contact-item { justify-content: center; }
+}
+
+/* --- Navbar Responsive (Mobile Menu) --- */
+@media screen and (max-width: 950px) {
+    /* แสดงปุ่ม Hamburger */
+    .menu-icon { 
+        display: flex; 
+    }
+
+    /* ซ่อนเมนูหลัก และปรับให้เป็น Popup */
+    #menu-container {
+        display: none; 
+        position: absolute;
+        top: 60px; /* ความสูงเท่า Navbar ใหม่ */
+        left: 0; 
+        width: 100%;
+        background-color: #F9A848; 
+        padding-bottom: 20px;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+        flex-direction: column;
+    }
+
+    /* แสดงเมนูเมื่อมี Class .show */
+    #menu-container.show { 
+        display: block; 
+    }
+
+    /* จัดเรียงลิงก์เป็นแนวตั้ง */
+    .nav-links {
+        flex-direction: column;
+        gap: 0; 
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* ปรับ Dropdown ในมือถือ */
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        background-color: #F9A848;
+        display: none;
+        padding: 0;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-menu::before { display: none; }
+}
+
+/* =========================================
+   MODAL POPUP STYLES
+   ========================================= */
+
+/* พื้นหลังมืดๆ (Overlay) */
+.modal {
+    display: none; /* ซ่อนไว้ก่อน */
+    position: fixed; 
+    z-index: 2000; /* ต้องมากกว่า Navbar (Navbar ปกติ 1000) */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.6); /* สีดำโปร่งแสง */
+    backdrop-filter: blur(5px); /* เบลอฉากหลัง */
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* ตัวกล่อง Popup */
+.modal-content {
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px; /* ความกว้างสูงสุด */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    padding: 30px;
+    animation: slideUp 0.4s ease forwards;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ปุ่มปิด (X) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* การจัดวางเนื้อหาข้างใน */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-img-wrapper {
+    width: 135px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #F9A848;
+    margin-bottom: 15px;
+}
+
+.modal-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-info h2 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.role-text {
+    color: #F9A848;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.modal-line {
+    width: 50px;
+    height: 3px;
+    background-color: #ddd;
+    border: none;
+    margin: 0 auto 20px auto;
+}
+
+.desc-text {
+    color: #555;
+    line-height: 1.6;
+    text-align: left; /* จัดชิดซ้ายให้อ่านง่าย */
+    width: 100%;
+    font-size: 15px;
+}
+
+/* เพิ่มลูกศรให้รู้ว่าคลิกการ์ดได้ */
+.profile-card {
+    cursor: pointer;
+}

@@ -1,0 +1,248 @@
+/* =========================================
+   1. ตั้งค่าพื้นฐาน
+   ========================================= */
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: #e2e5e5;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+/* เพิ่มส่วนนี้เข้าไปใหม่ เพื่อบังคับขนาดร่างเล็กให้เท่ากัน */
+.project-card.compact-view {
+    height: 480px; /* บังคับความสูงให้เท่ากันทุกกล่อง (ปรับตัวเลขได้ถ้าอยากให้สูง/เตี้ยกว่านี้) */
+    display: flex;
+    flex-direction: column; /* ให้เนื้อหาเรียงจากบนลงล่าง */
+}
+
+/* =========================================
+   2. PROJECT INTERACTIVE CARD
+   ========================================= */
+.project-interactive-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.project-card {
+    background-color: #f0c356; 
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    position: relative;
+    text-align: center;
+    animation: fadeIn 0.4s ease-in-out; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- กล่องเล็กตอนเริ่มต้น --- */
+.compact-view .project-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.project-title {
+    color: #1e2b40;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.project-desc {
+    color: #444;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.read-more-btn {
+    background-color: #fdf1cd;
+    border: 1px solid #c7a14e;
+    border-radius: 25px;
+    padding: 10px 40px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #1e2b40;
+    font-family: 'Prompt', sans-serif;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.read-more-btn:hover {
+    background-color: #fff8e1;
+    transform: scale(1.05);
+}
+
+/* --- กล่องใหญ่ตอนกดขยาย --- */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #d19a3b;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover { color: #a37222; transform: scale(1.1); }
+
+.expanded-header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+
+.project-img-large {
+    width: 45%;
+    border-radius: 15px;
+}
+
+.expanded-title-area {
+    width: 55%;
+}
+
+.expanded-content-area {
+    position: relative;
+    background-color: #fdf1cd;
+    border-radius: 15px;
+    padding: 40px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-content p {
+    font-size: 0.85rem;
+    color: #444;
+    line-height: 1.8;
+    margin: 0;
+    text-align: left;
+}
+
+/* --- ปุ่มแท็บแนวตั้ง --- */
+.side-tab-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    background-color: #dfb241;
+    border: none;
+    padding: 20px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #9c731e;
+    font-family: 'Prompt', sans-serif;
+    font-weight: 600;
+    height: 140px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.side-tab-btn.left-tab {
+    left: -15px;
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.side-tab-btn.right-tab {
+    right: -15px;
+}
+
+.side-tab-btn.active, .side-tab-btn:hover {
+    background-color: #c79521;
+    color: white;
+    z-index: 10;
+}
+
+/* =========================================
+   Responsive สำหรับมือถือและหน้าจอขนาดเล็ก
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. จัดเรียงส่วนหัว (รูป + ข้อความ) ให้เรียงลงมาแทนซ้ายขวา */
+    .expanded-header { 
+        flex-direction: column; 
+        text-align: center;
+        margin-top: 25px; /* ดันลงมาหลบปุ่มกากบาท (X) */
+    }
+    
+    .project-img-large { 
+        width: 100%; 
+        height: 200px; 
+        object-fit: cover; 
+    }
+    
+    .expanded-title-area { 
+        width: 100%; 
+    }
+
+    /* 2. จัดการพื้นที่กล่องข้อความด้านล่าง */
+    .expanded-content-area { 
+        /* เว้นที่ด้านบน 60px เพื่อให้ปุ่มแท็บมาวางได้โดยไม่ทับข้อความ */
+        padding: 70px 20px 25px 20px; 
+        align-items: flex-start; /* ให้ข้อความเริ่มจากด้านบน */
+    }
+    
+    .tab-content p {
+        font-size: 0.9rem; /* ปรับฟอนต์ให้ใหญ่ขึ้นนิดนึงเพื่อให้อ่านบนมือถือง่าย */
+    }
+
+    /* 3. 🌟 ไฮไลท์: เปลี่ยนปุ่มแนวตั้ง เป็นแท็บแนวนอนด้านบน */
+    .side-tab-btn { 
+        position: absolute;
+        top: 0; /* เอาไปแปะติดขอบบนของกล่องเนื้อหา */
+        writing-mode: horizontal-tb; /* เปลี่ยนตัวหนังสือเป็นแนวนอนปกติ */
+        height: 50px; /* ความสูงของปุ่มตอนเป็นมือถือ */
+        width: 50%; /* แบ่งครึ่งจอ ซ้าย-ขวา พอดีเป๊ะ */
+        font-size: 0.95rem;
+        border-radius: 15px 15px 0 0; /* ทำมุมมนเฉพาะด้านบน 2 ฝั่ง */
+        transform: none !important; /* ยกเลิกเอฟเฟกต์หมุนกลับหัว */
+    }
+
+    /* ปุ่มซ้ายให้อยู่ชิดซ้าย */
+    .side-tab-btn.left-tab { 
+        left: 0; 
+    }
+
+    /* ปุ่มขวาให้อยู่ชิดขวา */
+    .side-tab-btn.right-tab { 
+        right: 0; 
+    }
+}
+/* =========================================
+   จัด Grid ให้โปรเจกต์เรียงต่อกัน
+   ========================================= */
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap; /* ถ้าเกินจอให้เด้งลงบรรทัดใหม่ */
+    gap: 30px; /* ระยะห่างระหว่างกล่อง */
+    justify-content: center; /* จัดให้อยู่กึ่งกลางหน้าจอ */
+    align-items: flex-start; /* 🌟 สำคัญมาก: ทำให้กล่องอื่นไม่ยืดความสูงตามกล่องที่ขยายร่าง */
+    width: 100%;
+    max-width: 1200px; /* ความกว้างสูงสุดของพื้นที่ทั้งหมด */
+    margin: 40px auto;
+}
+
+/* ปรับขนาดกล่องเล็กน้อยเพื่อให้เรียงกันได้สวย */
+.project-interactive-container {
+    width: 100%;
+    max-width: 480px; /* ขนาดความกว้างเดิมที่คุณชอบ */
+    flex: 1 1 400px; /* ถ้าหน้าจอแคบลง ให้หดตามได้ แต่ไม่เล็กกว่า 400px */
+}

@@ -1,0 +1,598 @@
+/* รีเซ็ตค่าเริ่มต้น */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Prompt', sans-serif; /* ใช้ฟอนต์ Prompt */
+    background-color: #333; /* พื้นหลังสมมติเพื่อให้เห็น Header ชัดๆ */
+}
+
+/* --- Container ของ Header --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F9A848;
+    padding: 10px 40px;
+    height: 80px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    /* --- ส่วนที่เพิ่มเข้ามา --- */
+    position: fixed; /* ให้ลอยอยู่กับที่ */
+    top: 0; 
+    width: 100%;
+    z-index: 1000; /* ให้อยู่บนสุดเสมอ */
+    transition: top 0.3s ease-in-out; /* เอฟเฟกต์เลื่อนขึ้นลงนุ่มๆ */
+}
+
+/* --- จัดการ Logo --- */
+.logo img {
+    height: 50px; /* กำหนดความสูงโลโก้ */
+    object-fit: contain;
+}
+
+/* --- จัดการรายการเมนู --- */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2px;  /* <-- ของใหม่: ลด gap ลงเพื่อให้ปุ่มชิดกันมากขึ้น แล้วใช้ padding แทน */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.5s ease; 
+
+    /* --- ส่วนที่เพิ่มขึ้นมาเพื่อขยายพื้นที่ --- */
+    display: block; /* ทำให้ลิงก์มีคุณสมบัติเป็นกล่อง เพื่อให้ padding ทำงานสมบูรณ์ */
+    padding: 20px 10px; /* เพิ่มพื้นที่ บนล่าง 10px, ซ้ายขวา 20px */
+    border-radius: 8px; /* เพิ่มความมนที่มุมเล็กน้อย (เผื่อใส่สีพื้นหลังตอน hover) */
+}
+
+/* --- เอฟเฟกต์ตอนเอาเมาส์ชี้ (Hover) และสถานะ Active --- */
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #fff;
+    background-color: rgba(255, 123, 0, 0.658);
+}
+
+/* --- ลูกศร Dropdown --- */
+.arrow {
+    font-size: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+/* --- การจัดการ Dropdown --- */
+
+/* 1. กำหนดให้เมนูหลักเป็นจุดอ้างอิง */
+.dropdown {
+    position: relative;
+}
+
+/* 2. ดีไซน์กล่องเมนูย่อย (ปกติจะซ่อนอยู่) */
+.dropdown-menu {
+    display: none; /* ซ่อนไว้ก่อน */
+    position: absolute; /* ลอยอิสระเทียบกับปุ่มแม่ */
+    top: 120%; /* อยู่ใต้ปุ่มแม่พอดี */
+    left: 0;
+    background-color: #fff; /* พื้นหลังสีขาว */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* เงาให้ดูมีมิติ */
+    min-width: 250px; /* ความกว้างขั้นต่ำ (ปรับได้ถ้าข้อความยาว) */
+    list-style: none;
+    padding: 10px 0; /* ระยะห่างบนล่างภายในกล่อง */
+    border-radius: 10px;
+    z-index: 1000; /* ให้ลอยอยู่เหนือเลเยอร์อื่นๆ */
+}
+
+/* 3. สั่งให้แสดงเมื่อเอาเมาส์ชี้ที่ .dropdown (Hover) */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* 4. ตกแต่งลิ้งค์ข้างใน Dropdown */
+.dropdown-menu li a {
+    color: #333; /* สีตัวอักษรเข้ม */
+    padding: 10px 20px; /* ระยะห่างให้น่ากด */
+    display: block;
+    font-size: 14px; /* ขนาดตัวอักษรเล็กลงหน่อยเพื่อความสวยงาม */
+    font-weight: 400; /* ตัวธรรมดา ไม่หนา */
+    white-space: nowrap; /* ห้ามตัดบรรทัด (ถ้าข้อความยาวเกินให้ขยายกล่องเอา) */
+}
+
+/* 5. เปลี่ยนสีพื้นหลังเมื่อชี้ลิ้งค์ย่อย */
+.dropdown-menu li a:hover {
+    background-color: #f1f1f1; /* สีเทาอ่อนๆ */
+    color: #F9A848; /* ตัวหนังสือเปลี่ยนเป็นสีส้มธีมหลัก */
+}
+/* --- สร้างสะพานล่องหนเชื่อมปุ่มกับเมนู --- */
+.dropdown-menu::before {
+    content: "";
+    display: block;
+    position: absolute;
+    /* ความกว้างเท่ากับตัวเมนู */
+    width: 100%;
+    /* ความสูงของสะพาน (ปรับให้พอดีกับช่องว่างที่มันห่าง) */
+    height: 20px; 
+    /* ดันสะพานขึ้นไปข้างบน เพื่อให้อยู่ระหว่างปุ่มกับเมนู */
+    top: -20px; 
+    left: 0;
+    /* สีพื้นหลัง (ใส่สีแดงไว้เทสก่อน พอใช้จริงค่อยลบออกหรือเปลี่ยนเป็น transparent) */
+    /* background-color: red; */ 
+    background-color: transparent; 
+}
+/* --- แก้ไขเฉพาะ Dropdown ที่ชิดขวา (Performance) --- */
+.dropdown-right .dropdown-menu {
+    left: auto;  /* ยกเลิกการยึดขอบซ้าย */
+    right: 0;    /* สั่งให้ยึดขอบขวาแทน */
+}
+/* =========================================
+   ส่วนที่เพิ่มใหม่: Hamburger & Mobile View
+   ========================================= */
+
+/* ดีไซน์ปุ่ม Hamburger (ปกติซ่อนไว้) */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+.menu-icon span {
+    width: 25px; height: 3px; background-color: #000;
+    transition: 0.3s;
+}
+
+/* --- Responsive Layout (สำหรับจอมือถือ) --- */
+@media screen and (max-width: 950px) {
+    .navbar { padding: 10px 40px; }
+
+    /* แสดงปุ่ม Burger */
+    .menu-icon { display: flex; }
+
+    /* ซ่อนเมนูหลักไว้ก่อน */
+    #menu-container {
+        display: none; /* ซ่อน */
+        position: absolute;
+        top: 80px; 
+        left: 0; 
+        width: 100%;
+        background-color: #F9A848; /* ใช้สีเดียวกับ Header */
+        padding-bottom: 20px;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+    }
+
+    /* คลาสนี้จะถูก JS เติมเข้ามาตอนกดปุ่ม */
+    #menu-container.show { display: block; }
+
+    /* จัดเรียงเมนูเป็นแนวตั้ง */
+    .nav-links {
+        flex-direction: column;
+        gap: 0; /* รีเซ็ต gap เดิม */
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* ปรับแต่ง Dropdown ในมือถือ */
+    .dropdown-menu {
+        position: static; /* ไม่ให้ลอยแล้ว ให้แทรกเนื้อหาลงมาเลย */
+        width: 100%;
+        box-shadow: none;
+        background-color: #ffb865; /* สีพื้นหลัง Dropdown ให้เข้มขึ้นนิดนึงจะได้แยกออก */
+        display: none; /* ซ่อนไว้ก่อน */
+        padding: 0;
+    }
+    
+    /* ในมือถือ ให้แสดง Dropdown เมื่อ Hover (หรือจะเปลี่ยนเป็น Click ก็ได้) */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    
+    /* ซ่อนสะพานล่องหนในมือถือเพราะไม่จำเป็น */
+    .dropdown-menu::before { display: none; }
+}
+/* =========================================
+   4. FOOTER (ส่วนท้ายเว็บ)
+   ========================================= */
+footer {
+    background-color: #F9A848;
+    padding: 20px 0;
+    /* Compact size */
+    color: #000;
+    margin-top: auto;
+    font-size: 14px;
+}
+
+/* --- Footer Top (Logo & Social) --- */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-logo img {
+    height: 35px;
+    object-fit: contain;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 16px;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.social-icons a:nth-child(1) {
+    background-color: #1877F2;
+}
+
+.social-icons a:nth-child(2) {
+    background-color: #E4405F;
+}
+
+/* --- Footer Divider --- */
+.footer-line {
+    border: none;
+    border-top: 1px solid #333;
+    margin-bottom: 15px;
+    opacity: 0.3;
+}
+
+/* --- Footer Bottom (Content) --- */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-col h3 {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.footer-col p {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+/* --- Contact Info --- */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.contact-item i {
+    width: 20px;
+    font-size: 14px;
+    margin-top: 3px;
+}
+/* กำหนดกรอบเนื้อหาไม่ให้กว้างเกินไป และอยู่กึ่งกลาง */
+.container {
+    width: 100%;
+    max-width: 1140px; /* จำกัดความกว้างสูงสุด */
+    margin: 0 auto;    /* จัดกึ่งกลางหน้าจอ */
+    padding: 0 20px;   /* เว้นขอบซ้ายขวาเล็กน้อย */
+    box-sizing: border-box; /* รวม padding ในความกว้าง */
+}
+
+/* =========================================
+   Academics Section
+   ========================================= */
+.academics-section {
+    width: 100%;
+    font-family: sans-serif;
+    margin-top: 80px;
+}
+
+/* แถบหัวข้อสีน้ำเงินเข้ม */
+.academics-header {
+    background-color: #1e2b40;
+    color: #ffffff;
+    text-align: center;
+    padding: 45px;
+}
+
+.academics-header h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* พื้นหลังส่วนเนื้อหา */
+.academics-container {
+    background-color: #f8f8f8;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* การ์ดข้อมูล */
+.program-card {
+    background-color: #e6e6e6; /* สีเทาอ่อนแบบในรูป */
+    width: 100%;
+    max-width: 900px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* หัวการ์ดสีส้ม */
+.card-top-bar {
+    background-color: #f9a848;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+.card-top-bar h3 {
+    margin: 0;
+    color: #1a1a1a;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* จุดวงกลมตกแต่งซ้ายบน */
+.mac-dots {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    display: flex;
+    gap: 6px;
+}
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff; /* สีสำรอง */
+}
+.dot.red { background-color: #ff5f56; }
+.dot.yellow { background-color: #ffbd2e; }
+
+/* เนื้อหาในส่วนการ์ด */
+.card-body {
+    padding: 30px;
+    color: #333;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+.program-img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+    display: block;
+}
+
+/* =========================================
+   ปุ่ม Accordion (หลักสูตรต่อเนื่อง)
+   ========================================= */
+.accordion-wrapper {
+    background-color: #1e2b40; /* สีกรมท่า */
+    border-radius: 12px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.accordion-btn {
+    background-color: #1e2b40;
+    color: #ffffff;
+    width: 100%;
+    padding: 15px 25px;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.accordion-btn:hover {
+    background-color: #2a3d5c;
+}
+
+.btn-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #f9a848; /* ไอคอน/ข้อความสีส้ม หรือเปลี่ยนเป็นขาวก็ได้ */
+}
+.btn-left span {
+    color: #ffffff;
+}
+
+/* วงกลมลูกศรสีส้ม */
+.btn-right {
+    background-color: #f9a848;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease; /* อนิเมชั่นหมุนลูกศร */
+    box-shadow: 0 0 10px rgba(249, 168, 72, 0.4); /* เงาเรืองแสง */
+}
+
+/* สร้างลูกศรด้วย CSS */
+.arrow-down {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(45deg);
+    margin-bottom: 3px;
+}
+
+/* เมื่อปุ่มถูกกดให้หมุนลูกศรขึ้น */
+.accordion-btn.active .btn-right {
+    transform: rotate(180deg);
+}
+
+/* กล่องเนื้อหาที่ซ่อนอยู่ */
+.accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out; /* อนิเมชั่นตอนสไลด์ลง */
+}
+
+/* ดีไซน์ของเนื้อหาด้านในกล่อง */
+.panel-content {
+    border-top: 2px solid #f9a848; /* เส้นคั่นสีส้มแบบในรูป */
+    padding: 30px 20px;
+    text-align: center;
+    color: #ffffff;
+}
+.panel-content h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+.panel-content h2 {
+    margin: 10px 0;
+    font-size: 2rem;
+    color: #ffffff;
+}
+.panel-content p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   Responsive (มือถือ)
+   ========================================= */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 15px;
+    }
+    .accordion-btn {
+        padding: 15px;
+        font-size: 1rem;
+    }
+}
+/* =========================================
+   Curriculum Section (ส่วนแสดงแผนการเรียนรูปภาพ)
+   ========================================= */
+
+.curriculum-section {
+    width: 100%;
+    background-color: #e0e0e0; /* สีพื้นหลัง (ปรับให้เข้ากับเว็บคุณได้ครับ) */
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px; 
+}
+
+.curriculum-wrapper {
+    width: 100%;
+    max-width: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* 🌟 สไตล์กล่องหัวข้อแบบใหม่ (ตามรูป) */
+.curriculum-tab {
+    background-color: #ffffff;
+    border: 3px solid #1e2b40; /* ขอบสีกรมท่าเข้ม */
+    border-radius: 12px; /* ขอบมนพอดีๆ */
+    padding: 15px 30px;
+    padding-bottom: 35px; /* ดันข้อความขึ้น เผื่อที่ว่างด้านล่างให้ขีดสีส้ม */
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    max-width: 90%; /* ป้องกันกล่องล้นขอบจอ */
+}
+
+.curriculum-tab h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000000;
+    line-height: 1.6;
+    text-align: left; /* ให้ข้อความชิดซ้ายเสมอ */
+}
+
+/* 🌟 ลายเส้นปะสีส้ม มุมขวาล่างภายในกล่อง */
+.curriculum-tab::after {
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    width: 120px; /* ความยาวของเส้น */
+    height: 6px;  /* ความหนาของเส้น */
+    /* ใช้ Gradient สร้างลายเส้นทึบสลับช่องว่าง (ลายปะแบบในรูป) */
+    background: repeating-linear-gradient(
+        to right,
+        #F9A848 0,
+        #F9A848 20px,
+        transparent 20px,
+        transparent 25px
+    );
+}
+
+/* จัดกล่องให้ชิดซ้าย-ขวา */
+.align-left {
+    align-self: flex-start;
+}
+
+.align-right {
+    align-self: flex-end;
+}
+
+/* เฟรมพื้นหลังสำหรับรูป */
+.curriculum-frame {
+    background-image: url('img/1.jpg'); /* สีพื้นหลังเฟรม (สีไข่อ่อนๆ ตามรูปตัวอย่าง) */
+    width: 100%;
+    padding: 90px;
+    border-radius: 12px; 
+}
+
+.curriculum-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   Responsive (สำหรับหน้าจอมือถือ)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .curriculum-section {
+        padding: 50px 15px;
+        gap: 50px;
+    }
+    
+    .curriculum-tab {
+        align-self: center; /* ในมือถือให้กล่องอยู่ตรงกลางทั้งหมด */
+        max-width: 100%;
+        padding: 15px 20px;
+        padding-bottom: 30px;
+    }
+
+    .curriculum-tab h3 {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Interactive</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="Test1.css">
+</head>
+
+<body>
+
+    <div class="projects-grid">
+
+        <div class="project-interactive-container">
+            <div class="project-card compact-view">
+                <img src="img/Apirat.jpg" alt="Project 1" class="project-img">
+                <h3 class="project-title">Measurement Multimeter</h3>
+                <p class="project-desc">อุปกรณ์วัดค่าที่สามารถวัดค่าได้หลากหลาย...</p>
+                <button class="read-more-btn" onclick="openExpanded(this)">Read More</button>
+            </div>
+
+            <div class="project-card expanded-view" style="display: none;">
+                <button class="close-btn" onclick="closeExpanded(this)">&#10005;</button>
+                <div class="expanded-header">
+                    <img src="img/Apirat.jpg" alt="Project 1" class="project-img-large">
+                    <div class="expanded-title-area">
+                        <h3 class="project-title">Measurement Multimeter</h3>
+                        <p class="project-desc">อุปกรณ์วัดค่าที่สามารถวัดค่าได้หลากหลาย...</p>
+                    </div>
+                </div>
+                <div class="expanded-content-area">
+                    <button class="side-tab-btn left-tab active" onclick="switchTab(this, 1)">หลักการทำงาน</button>
+                    <button class="side-tab-btn right-tab" onclick="switchTab(this, 2)">วิธีการใช้งาน</button>
+
+                    <div class="tab-content tab-1">
+                        <p>เนื้อหาหลักการทำงาน โปรเจกต์ที่ 1...</p>
+                    </div>
+                    <div class="tab-content tab-2" style="display: none;">
+                        <p>เนื้อหาวิธีการใช้งาน โปรเจกต์ที่ 1...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="project-interactive-container">
+            <div class="project-card compact-view">
+                <img src="img/Attasit.jpg" alt="Project 2" class="project-img">
+                <h3 class="project-title">Project Name 2</h3>
+                <p class="project-desc">คำอธิบายโปรเจกต์ที่ 2...</p>
+                <button class="read-more-btn" onclick="openExpanded(this)">Read More</button>
+            </div>
+
+            <div class="project-card expanded-view" style="display: none;">
+                <button class="close-btn" onclick="closeExpanded(this)">&#10005;</button>
+                <div class="expanded-header">
+                    <img src="img/Attasit.jpg" alt="Project 2" class="project-img-large">
+                    <div class="expanded-title-area">
+                        <h3 class="project-title">Project Name 2</h3>
+                        <p class="project-desc">คำอธิบายโปรเจกต์ที่ 2 แบบเต็ม...</p>
+                    </div>
+                </div>
+                <div class="expanded-content-area">
+                    <button class="side-tab-btn left-tab active" onclick="switchTab(this, 1)">หลักการทำงาน</button>
+                    <button class="side-tab-btn right-tab" onclick="switchTab(this, 2)">วิธีการใช้งาน</button>
+
+                    <div class="tab-content tab-1">
+                        <p>เนื้อหาหลักการทำงาน โปรเจกต์ที่ 2...</p>
+                    </div>
+                    <div class="tab-content tab-2" style="display: none;">
+                        <p>เนื้อหาวิธีการใช้งาน โปรเจกต์ที่ 2...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="project-interactive-container">
+            <div class="project-card compact-view">
+                <img src="img/project1.jpg" alt="Project 1" class="project-img">
+                <h3 class="project-title">Measurement Multimeter</h3>
+                <p class="project-desc">อุปกรณ์วัดค่าที่สามารถวัดค่าได้หลากหลาย...</p>
+                <button class="read-more-btn" onclick="openExpanded(this)">Read More</button>
+            </div>
+
+            <div class="project-card expanded-view" style="display: none;">
+                <button class="close-btn" onclick="closeExpanded(this)">&#10005;</button>
+                <div class="expanded-header">
+                    <img src="img/project1.jpg" alt="Project 1" class="project-img-large">
+                    <div class="expanded-title-area">
+                        <h3 class="project-title">Measurement Multimeter</h3>
+                        <p class="project-desc">อุปกรณ์วัดค่าที่สามารถวัดค่าได้หลากหลาย...</p>
+                    </div>
+                </div>
+                <div class="expanded-content-area">
+                    <button class="side-tab-btn left-tab active" onclick="switchTab(this, 1)">หลักการทำงาน</button>
+                    <button class="side-tab-btn right-tab" onclick="switchTab(this, 2)">วิธีการใช้งาน</button>
+
+                    <div class="tab-content tab-1">
+                        <p>เนื้อหาหลักการทำงาน โปรเจกต์ที่ 1...</p>
+                    </div>
+                    <div class="tab-content tab-2" style="display: none;">
+                        <p>เนื้อหาวิธีการใช้งาน โปรเจกต์ที่ 1...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="project-interactive-container">
+            <div class="project-card compact-view">
+                <img src="img/project2.jpg" alt="Project 2" class="project-img">
+                <h3 class="project-title">Project Name 2</h3>
+                <p class="project-desc">คำอธิบายโปรเจกต์ที่ 2...</p>
+                <button class="read-more-btn" onclick="openExpanded(this)">Read More</button>
+            </div>
+
+            <div class="project-card expanded-view" style="display: none;">
+                <button class="close-btn" onclick="closeExpanded(this)">&#10005;</button>
+                <div class="expanded-header">
+                    <img src="img/project2.jpg" alt="Project 2" class="project-img-large">
+                    <div class="expanded-title-area">
+                        <h3 class="project-title">Project Name 2</h3>
+                        <p class="project-desc">คำอธิบายโปรเจกต์ที่ 2 แบบเต็ม...</p>
+                    </div>
+                </div>
+                <div class="expanded-content-area">
+                    <button class="side-tab-btn left-tab active" onclick="switchTab(this, 1)">หลักการทำงาน</button>
+                    <button class="side-tab-btn right-tab" onclick="switchTab(this, 2)">วิธีการใช้งาน</button>
+
+                    <div class="tab-content tab-1">
+                        <p>เนื้อหาหลักการทำงาน โปรเจกต์ที่ 2...</p>
+                    </div>
+                    <div class="tab-content tab-2" style="display: none;">
+                        <p>เนื้อหาวิธีการใช้งาน โปรเจกต์ที่ 2...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Test1.js"></script>
+</body>
+
+</html>

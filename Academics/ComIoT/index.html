@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ioTE Header</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header class="navbar" id="main-nav">
+        <div class="logo">
+            <img src="https://placehold.co/180x60/orange/white?text=IoTE+KMITL" alt="iGTE Logo">
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="menu-container">
+            <ul class="nav-links">
+                <li><a href="../../Home/index.html">Home</a></li>
+                <li><a href="../../About_IoT/index.html">About IoT</a></li>
+
+                <li class="dropdown">
+                    <a href="../../Academics/index.html" style="color:aliceblue">Academics <span
+                            class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../Academics/IoT/index.html">IoT System and information</a></li>
+                        <li><a href="../../Academics/ComIoT/index.html">วิศวกรรมคอมพิวเตอร์และไอโอที (ต่อเนื่อง)</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="../../Admission/index.html">Admission</a></li>
+                <li><a href="../../Contact/index.html">Contact</a></li>
+                <li><a href="../../Faculty/index.html">Faculty</a></li>
+
+                <li class="dropdown dropdown-right">
+                    <a href="../../Performance/index.html">Performance <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../Performance/DCL/index.html">Definition of Cybersecurity Laboratory</a></li>
+                        <li><a href="../../Performance/CLR/index.html">Cybersecurity Laboratory Researcher</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="academics-section">
+
+        <div class="academics-header">
+            <h2>Academics</h2>
+        </div>
+
+        <div class="academics-container">
+
+            <div class="program-card">
+
+                <div class="card-top-bar">
+                    <div class="mac-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                    </div>
+                    <h3>Bachelor of Engineering Program in Computer Engineering and IoT</h3>
+                </div>
+
+                <div class="card-body">
+                    <p><strong>"จาก ปวส. สู่ วิศวกรเต็มตัว ทันสมัยที่สุดด้วย AI, IoT และ Digital
+                            Technology"</strong><br>
+                        หลักสูตรนี้ออกแบบมาเพื่อ Upgrade ผู้สำเร็จการศึกษาระดับประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)
+                        ให้ก้าวสู่การเป็นวิศวกร...</p>
+
+                    <p><strong>ชื่อปริญญาและสาขาวิชา</strong><br>
+                        ชื่อเต็ม<br>
+                        • ภาษาไทย: วิศวกรรมศาสตรบัณฑิต สาขาวิศวกรรมคอมพิวเตอร์และไอโอที<br>
+                        • ภาษาอังกฤษ: Bachelor of Engineering Program in Computer Engineering and IoT</p>
+
+                    <img src="img/classroom.jpg" alt="บรรยากาศการเรียน" class="program-img">
+
+                    <div class="accordion-wrapper">
+                        <button class="accordion-btn" onclick="toggleAccordion(this)">
+                            <div class="btn-left">
+                                📄 <span>หลักสูตรต่อเนื่อง</span>
+                            </div>
+                            <div class="btn-right">
+                                <i class="arrow-down"></i>
+                            </div>
+                        </button>
+                        <div class="accordion-panel">
+                            <div class="panel-content">
+                                <h4>ค่าธรรมเนียมการศึกษา</h4>
+                                <h2>25,000</h2>
+                                <p>บาท/ภาคการศึกษา</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+     <section class="curriculum-section">
+
+        <div class="curriculum-wrapper">
+            <div class="curriculum-tab align-right">
+                <h3>หลักสูตรฟิสิกส์อุตสาหกรรมและวิศวกรรมระบบไอโอทีและสารสนเทศ</h3>
+            </div>
+            <div class="curriculum-frame">
+                <img src="img/1d.jpg" alt="ตารางแผนการเรียน 2 ปริญญา" class="curriculum-img">
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="https://placehold.co/150x50/orange/white?text=IoTE+Logo" alt="iGTE Logo">
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <hr class="footer-line">
+            <div class="footer-bottom">
+                <div class="footer-col">
+                    <h3>ABOUT US</h3>
+                    <p><strong>Bachelor of Engineering</strong><br>(IoT System and Information)</p>
+                    <br>
+                    <p><strong>Dual Degree</strong><br>(B.Eng. IoT System + B.Sc. Industrial Physics)</p>
+                </div>
+                <div class="footer-col contact-info">
+                    <h3>CONTACT US</h3>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>ชั้น 12 อาคารเรียนรวม 12 ชั้น เลขที่ 1 ซอยฉลองกรุง 1 <br>
+                            แขวงลาดกระบัง เขตลาดกระบัง กรุงเทพมหานคร 10520</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-regular fa-envelope"></i>
+                        <p>iote@kmitl.ac.th<br>pikulkaew.ta@kmitl.ac.th</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>02-329-8000 ext.5129<br>02-329-8301 ext.235</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

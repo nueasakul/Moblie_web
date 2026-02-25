@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ioTE KMITL</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar" id="main-nav">
+        <div class="logo">
+            <img src="https://placehold.co/180x60/orange/white?text=IoTE+KMITL" alt="iGTE Logo">
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="menu-container">
+            <ul class="nav-links">
+                <li><a href="../Home/index.html">Home</a></li>
+                <li><a href="../About_IoT/index.html">About IoT</a></li>
+
+                <li class="dropdown">
+                    <a href="../Academics/index.html">Academics <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../Academics/IoT/index.html">IoT System and information</a></li>
+                        <li><a href="../Academics/ComIoT/index.html">Computer Engineering & IoT</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="../Admission/index.html">Admission</a></li>
+                <li><a href="../Contact/index.html">Contact</a></li>
+                <li><a href="../Faculty/index.html" style="color:aliceblue">Faculty</a></li>
+
+                <li class="dropdown dropdown-right">
+                    <a href="../Performance/index.html">Performance <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../Performance/DCL/index.html">Definition of Cybersecurity Lab</a></li>
+                        <li><a href="../Performance/CLR/index.html">Cybersecurity Lab Researcher</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="faculty-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px; font-size: 2rem;">
+                คณาจารย์ภาควิชาวิศวกรรมไอโอทีและสารสนเทศ</h2>
+            <div class="profile-grid">
+
+                <div class="profile-card"
+                    data-history="ประวัติการศึกษา: <br> - วศ.บ. (วิศวกรรมสารสนเทศ) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br> - วศ.ม. (วิศวกรรมสารสนเทศ) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br> - D.Eng. (Science and Technology) Tokai University, JAPAN <br><br> ความเชี่ยวชาญ: <br> - Web Application <br> - Mobile Application <br> - Information Security">
+                    <div class="card-image">
+                        <img src="img/Pikulkaew.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">ผศ.ดร.พิกุลแก้ว ตังติสานนท์</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Asst.Prof.Dr.Pikulkaew<br>Tangtisanon</p>
+                    </div>
+                    <div class="card-role">
+                        หัวหน้าภาควิชา
+                    </div>
+                </div>
+                <div class="profile-card"
+                    data-history="ประวัติการศึกษา: <br> - อส.บ. (เทคโนโลยีอิเล็กทรอนิกส์) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br> - วศ.ม. (วิศวกรรมสารสนเทศ) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br><br> ความเชี่ยวชาญ: <br> - Microprocessor Application <br> - Microcontroller <br> - Robotic <br> - Internet of Things and Smart System">
+                    <div class="card-image">
+                        <img src="img/Boonchana.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">รศ.ดร.บุณย์ชนะ ภู่ระหงษ์</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Assoc.Prof.Dr.Boonchana<br>Purahong</p>
+                    </div>
+                    <div class="card-role">
+                        ประธานหลักสูตรวิศวกรรมระบบไอโอที<br>และสารสนเทศ
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <div class="card-image">
+                        <img src="img/Apirat.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">ศ.ดร. อภิรัฐ ศิริธราธิวัตร</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Prof. Dr. Apirat<br>Siritaratiwat</p>
+                    </div>
+                    <div class="card-role">
+                        รองหัวหน้าภาควิชา<br>(ฝ่ายวิจัยและนวัตกรรม)
+                    </div>
+                </div>
+                <div class="profile-card"
+                    data-history="ประวัติการศึกษา: <br> - อส.บ. เกียรตินิยมอันดับ 2 (เทคโนโลยีอิเล็กทรอนิกส์) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br> - วศ.ม. (วิศวกรรมสารสนเทศ) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br> - วศ.ด. (วิศวกรรมไฟฟ้า) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br><br> ความเชี่ยวชาญ: <br> - Electronic <br> - Bernstein Filter <br> - Railway Signaling and Operation <br> - Pattern recognition <br> - Railway Communications">
+                    <div class="card-image">
+                        <img src="img/Vanvisa.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">ผศ.ดร.วันวิสา ชัชวงษ์</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Asst.Prof.Dr.Vanvisa<br>Chutchavong</p>
+                    </div>
+                    <div class="card-role">
+                        รองหัวหน้าภาควิชา<br>(ฝ่ายการเงิน)
+                    </div>
+                </div>
+                <div class="profile-card"
+                    data-history="ประวัติการศึกษา: <br> - B.Eng.(Electronics Engineering) King Mongkuts Institute of Technology Ladkrabang <br> - M.Eng.(Information Engineering) King Mongkuts Institute of Technology Ladkrabang <br> - D.Eng.(Electrical Engineering) King Mongkuts Institute of Technology Ladkrabang <br><br> ความเชี่ยวชาญ: <br> - immittance function simulators <br> - active analog filters <br> - oscillator design <br> - chaotic circuit realization">
+                    <div class="card-image">
+                        <img src="img/Natchanai.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">ผศ.ดร.นัชนัยน์ รุ่งเหมือนฟ้า</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Asst.Prof.Dr.Natchanai<br>Roongmuanpha</p>
+                    </div>
+                    <div class="card-role">
+                        รองหัวหน้าภาควิชา<br>(ฝ่ายต่างประเทศและกิจกรรมคณะ)
+                    </div>
+                </div>
+                <div class="profile-card"
+                    data-history="ประวัติการศึกษา: <br> - Doctoral of Philosophy in Computer Science, University of Buckingham, UK <br> - Master of Science in Computing (MERIT), University of Buckingham, UK <br> - Master of Art (Political Science), THAILAND <br> - Bachelor of Science in Management Technology, KMITL, THAILAND <br><br> ความเชี่ยวชาญ: <br> - Human computer interaction <br> - User Interfaces">
+                    <div class="card-image">
+                        <img src="img/Kleddao.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">ผศ.ดร.เกล็ดดาว สัตย์เจริญ</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Asst.Prof.Dr.Kleddao<br>Satcharoen</p>
+                    </div>
+                    <div class="card-role">
+                        อาจารย์ประจำภาควิชา<br>(ผู้ช่วยฝ่ายต่างประเทศและกิจกรรมคณะ)
+                    </div>
+                </div>
+                <div class="profile-card"
+                    data-history="ประวัติการศึกษา: <br> - วศ.บ. (วิศวกรรมคอมพิวเตอร์) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br> - วศ.ม. (วิศวกรรมไฟฟ้า) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br><br> ความเชี่ยวชาญ: <br> - Software Engineering <br> - Distributed Testing System">
+                    <div class="card-image">
+                        <img src="img/Nitjaree.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">ผศ.นิจจารีย์ สัตยารักษ</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Asst.Prof.Nitjaree<br>Satayarak</p>
+                    </div>
+                    <div class="card-role">
+                        รองหัวหน้าภาควิชา<br>(ฝ่ายกิจการนักศึกษา)
+                    </div>
+                </div>
+                <div class="profile-card"
+                    data-history="ประวัติการศึกษา: <br> - B.Eng.(Electronics Engineering) King Mongkuts Institute of Technology Ladkrabang <br> - M.Eng.(Information Engineering) King Mongkuts Institute of Technology Ladkrabang <br> - D.Eng.(Electrical Engineering) King Mongkuts Institute of Technology Ladkrabang <br><br> ความเชี่ยวชาญ: <br> - Microprocessor Application <br> - Internet of Things <br> - Embedded Systems <br> - Integrated System <br> - Railway Signaling, Communication and Operation">
+                    <div class="card-image">
+                        <img src="img/Thanavit.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">ผศ.ดร.ธนวิชญ์ อนุวงศ์พินิจ</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Asst.Prof.Dr.Thanavit<br>Anuwongpinit</p>
+                    </div>
+                    <div class="card-role">
+                        รองหัวหน้าภาควิชา<br>(ฝ่ายวิชาการ)
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <div class="card-image">
+                        <img src="img/Suwilai.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">ดร.สุวิไล พุ่มโพธิ์</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Dr.Suwilai<br>Phumpho</p>
+                    </div>
+                    <div class="card-role">
+                        รองหัวหน้าภาควิชา<br>(ฝ่ายกิจการภายนอก)
+                    </div>
+                </div>
+                <div class="profile-card"
+                    data-history="ประวัติการศึกษา: <br> - B.Eng.(Electronics Engineering) King Mongkuts Institute of Technology Ladkrabang <br> - M.Eng.(Information Engineering) King Mongkuts Institute of Technology Ladkrabang <br> - D.Eng.(Electrical Engineering) King Mongkuts Institute of Technology Ladkrabang <br><br> ความเชี่ยวชาญ: <br> - Cyber Security <br> - Internetworkind Design <br> - Information Security">
+                    <div class="card-image">
+                        <img src="img/Auttapon.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">ผศ.ดร.อรรถพล ป้อมสถิตย</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Asst.Prof.Dr.Auttapon<br>Pomsathit</p>
+                    </div>
+                    <div class="card-role">
+                        อาจารย์ประจำภาควิชา<br>(ผู้ช่วยฝ่ายกิจการภายนอก)
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <div class="card-image">
+                        <img src="img/Panarat.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">ผศ.ดร.พนารัตน์ เชิญถนอมวงศ์</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Asst.Prof.Dr.Panarat<br>Cherntanomwong</p>
+                    </div>
+                    <div class="card-role">
+                        อาจารย์ประจำภาควิชา<br>(ผู้ช่วยฝ่ายกิจการภายนอก)
+                    </div>
+                </div>
+                <div class="profile-card"
+                    data-history="ประวัติการศึกษา: <br> - อส.บ.(เทคโนโลยีอิเล็กทรอนิกส์) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br> - วศ.ม. (วิศวกรรมไฟฟ้า) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br><br> ความเชี่ยวชาญ: <br> - Analog and Digital Filter <br> - Embedded System <br> - RFID and Application <br> - Pattern recognition <br> - Information for Energy">
+                    <div class="card-image">
+                        <img src="img/Sorapong.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">ผศ.สรพงษ์ วชิรรัตนพรกุล</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Asst.Prof.Sorapong<br>Wachirarattanapornkul</p>
+                    </div>
+                    <div class="card-role">
+                        อาจารย์ประจำภาควิชา<br>(ผู้ช่วยฝ่ายกิจการนักศึกษา)
+                    </div>
+                </div>
+                <div class="profile-card"
+                    data-history="ประวัติการศึกษา: <br> - อส.บ. (เทคโนโลยีคอมพิวเตอร์อุตสาหกรรม) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br> - วศ.ม. (วิศวกรรมไฟฟ้า) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br><br> ความเชี่ยวชาญ: <br> - Wireless Communication <br> - Digital Filter">
+                    <div class="card-image">
+                        <img src="img/Paisan.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">ผศ.ไพศาล สิทธิโยภาสกุล</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Asst.Prof.Paisan<br>Sithiyopasakul</p>
+                    </div>
+                    <div class="card-role">
+                        อาจารย์พิเศษ
+                    </div>
+                </div>
+                <div class="profile-card"
+                    data-history="ประวัติการศึกษา: <br> - อส.บ. (เทคโนโลยีอิเล็กทรอนิกส์) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br> - วศ.ม. (วิศวกรรมไฟฟ้า) สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง <br> - D.Eng. (Electrical Engineering) Tokai University, JAPAN<br><br> ความเชี่ยวชาญ: <br> - Digital Processing <br> - Image Watermarking <br> - Embedded Systems <br> - Image Processing <br> - Machine Vision">
+                    <div class="card-image">
+                        <img src="img/Attasit.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">รศ.ดร.อรรถสิทธิ์ หล่าสกุล</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Assoc.Prof.Dr.Attasit<br>Lasakul</p>
+                    </div>
+                    <div class="card-role">
+                        อาจารย์พิเศษ
+                    </div>
+                </div>
+                <div class="profile-card"
+                    data-history="ประวัติการศึกษา: <br> - กศ.บ. เกียรตินิยม (ฟิสิกส์) มหาวิทยาลัยศรีนครินทรวิโรฒ ปทุมวัน <br> - วท.ม. (ฟิสิกส์) มหาวิทยาลัยศรีนครินทรวิโรฒ ประสานมิตร <br> -  M.S. (Electrical Engineering) George Washington University, USA <br> - Ph.D. (Electrical Engineering) University of Houston, USA<br><br> ความเชี่ยวชาญ: <br> - IT Automation <br> - Industrial Informatics">
+                    <div class="card-image">
+                        <img src="img/Pitikhate.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">ศ.ดร.ปิติเขต สู้รักษา</h3>
+                        <div class="divider-line"></div>
+                        <p class="eng-name">Prof.Dr.Pitikhate<br>Sooraksa</p>
+                    </div>
+                    <div class="card-role">
+                        อาจารย์พิเศษ
+                    </div>
+                </div>
+
+            </div>
+            <h2 style="text-align: center; margin-top: 40px; margin-bottom: 40px; font-size: 2rem;">
+                บุคลากรภาควิชาวิศวกรรมไอโอทีและสารสนเทศ</h2>
+            <div class="profile-grid">
+                <div class="profile-card">
+                    <div class="card-image">
+                        <img src="img/ธนาตย์.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">นายธนาตย์ จอมใจเอกชน</h3>
+                        <div class="divider-line"></div>
+                    </div>
+                    <div class="card-role">
+                        เจ้าหน้าที่วิศวกร
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <div class="card-image">
+                        <img src="img/ธีรสิทธิ์.jpg" alt="Profile">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="thai-name">นายธีรสิทธิ์ โท้ทอง</h3>
+                        <div class="divider-line"></div>
+                    </div>
+                    <div class="card-role">
+                        เจ้าหน้าที่วิศวกร
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="https://placehold.co/150x50/orange/white?text=IoTE+Logo" alt="iGTE Logo">
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <hr class="footer-line">
+
+            <div class="footer-bottom">
+                <div class="footer-col">
+                    <h3>ABOUT US</h3>
+                    <p><strong>Bachelor of Engineering</strong><br>
+                        (IoT System and Information)</p>
+                    <br>
+                    <p><strong>Dual Degree</strong><br>
+                        (B.Eng. IoT System + B.Sc. Industrial Physics)</p>
+                </div>
+
+                <div class="footer-col contact-info">
+                    <h3>CONTACT US</h3>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>ชั้น 12 อาคารเรียนรวม 12 ชั้น เลขที่ 1 ซอยฉลองกรุง 1 <br>
+                            แขวงลาดกระบัง เขตลาดกระบัง กรุงเทพมหานคร 10520</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-regular fa-envelope"></i>
+                        <p>iote@kmitl.ac.th<br>pikulkaew.ta@kmitl.ac.th</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>02-329-8000 ext.5129<br>02-329-8301 ext.235</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="profile-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+
+            <div class="modal-body">
+                <div class="modal-img-wrapper">
+                    <img id="modal-img" src="" alt="Profile Image">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-name">ชื่ออาจารย์</h2>
+                    <p id="modal-role" class="role-text">ตำแหน่ง</p>
+                    <hr class="modal-line">
+                    <div id="modal-desc" class="desc-text">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
