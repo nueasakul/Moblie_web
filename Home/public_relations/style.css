@@ -1,0 +1,115 @@
+/* =========================================
+   PR PAGE (หน้าประชาสัมพันธ์แบบ Grid)
+   ========================================= */
+
+/* พื้นหลังของหน้านี้ (ปรับสีพื้นหลังตามต้องการ ปัจจุบันให้เป็นสีเทาอ่อนๆ/ชมพูอ่อนๆ ตามรูป) */
+.pr-page-section {
+    background-color: #fcfcfc; 
+    padding: 40px 0 80px 0;
+    min-height: 100vh;
+}
+
+/* คอนเทนเนอร์คุมความกว้างไม่ให้ทะลุขอบจอ */
+.pr-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- ส่วน Header (ปุ่ม Back & ชื่อหน้า) --- */
+.pr-header {
+    display: flex;
+    justify-content: space-between; /* กระจายซ้าย-กลาง-ขวา */
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.back-btn {
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+    width: 30px; /* ล็อคความกว้างให้เท่ากับ spacer ด้านขวา */
+}
+
+.back-btn:hover {
+    color: #F9A848; /* โฮเวอร์แล้วเป็นสีส้ม */
+}
+
+.pr-header h2 {
+    font-size: 28px;
+    color: #1e2b40;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+}
+
+.spacer {
+    width: 30px; /* ใช้บาลานซ์ให้ h2 อยู่กึ่งกลางจอพอดี */
+}
+
+/* --- ส่วน Grid (จัดเรียงการ์ด) --- */
+.pr-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์ ขนาดเท่ากัน */
+    gap: 30px; /* ระยะห่างระหว่างกล่อง */
+}
+
+/* --- ส่วน Card (กล่องข่าว) --- */
+.pr-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    height: 400px;
+    /* ทำเงาฟุ้งๆ สีออกชมพู/เทา ตามเรฟเฟอเรนซ์ */
+    box-shadow: 0 10px 30px rgba(180, 150, 150, 0.15); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pr-card:hover {
+    transform: translateY(-8px); /* เมาส์ชี้แล้วลอยขึ้นนิดนึง */
+    box-shadow: 0 15px 35px rgba(180, 150, 150, 0.25);
+}
+
+.pr-card img {
+    width: 100%;
+    height: 250px; /* ล็อคความสูงของรูป */
+    object-fit: cover; /* ให้รูปเต็มกรอบโดยไม่เสียสัดส่วน */
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.pr-card p {
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+}
+
+/* =========================================
+   Responsive สำหรับมือถือและแท็บเล็ต
+   ========================================= */
+@media (max-width: 950px) {
+    .pr-grid {
+        grid-template-columns: repeat(2, 1fr); /* แท็บเล็ตแสดง 2 คอลัมน์ */
+    }
+}
+
+@media (max-width: 600px) {
+    .pr-grid {
+        grid-template-columns: 1fr; /* มือถือแสดง 1 คอลัมน์เรียงลงมา */
+    }
+    .pr-header h2 {
+        font-size: 22px;
+    }
+}
+.pr-card a{
+    color: #ffaa42;
+    text-decoration: none;
+    font-weight: 600;
+}

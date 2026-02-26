@@ -1,0 +1,103 @@
+body{
+    margin: 50px;
+}/* คอนเทนเนอร์หลัก */
+.news-detail-page {
+    background-color: #ffffff;
+    padding: 40px 0;
+    font-family: 'Prompt', sans-serif;
+}
+
+/* --- Header Section --- */
+.news-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.back-link {
+    font-size: 28px;
+    color: #1f2f3e;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.news-header h1 {
+    font-size: 24px;
+    color: #1f2f3e;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+/* --- Image Section --- */
+.main-image-wrapper {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.main-image-wrapper img {
+    width: 100%;
+    border-radius: 15px; /* มนขอบรูปตามรูปตัวอย่าง */
+    display: block;
+}
+
+/* --- Content Card (กล่องรายละเอียด) --- */
+.content-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* แถบหัวข้อสีน้ำเงินเข้ม */
+.card-header {
+    background-color: #1f2f3e; /* สีกรมท่า */
+    padding: 12px 25px;
+}
+
+.card-header h3 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* ส่วนเนื้อหาข้างในกล่อง */
+.card-body {
+    padding: 30px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.card-body p {
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.card-body ul {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.thanks-msg {
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+/* Responsive สำหรับมือถือ */
+@media (max-width: 768px) {
+    .news-header h1 {
+        font-size: 18px;
+    }
+    .card-body {
+        padding: 20px;
+    }
+}
+.back-btn {
+    padding-top: 16px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+    width: 30px; /* ล็อคความกว้างให้เท่ากับ spacer ด้านขวา */
+}
