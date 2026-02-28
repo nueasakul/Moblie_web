@@ -909,3 +909,43 @@ footer {
     width: 60%;
     height: auto;
 }
+
+@media screen and (max-width: 500px) {
+
+    /* 1. ปรับคอนเทนเนอร์ให้ครอบคลุมพื้นที่ด้านล่าง */
+    .chatbot-widget-container {
+        right: 0;
+        bottom: 0;
+        left: 0; /* สั่งให้กินพื้นที่ซ้ายขวาเต็ม */
+        padding: 10px; /* เว้นขอบนิดหน่อย */
+        align-items: flex-end; /* จัดให้ชิดขวา (สำหรับปุ่ม) */
+        width: auto; /* ปล่อยให้กว้างตามจอ */
+    }
+
+    /* 2. ปุ่มเปิดแชท (ให้ลอยอยู่มุมขวาล่างเหมือนเดิม แต่ขยับนิดหน่อย) */
+    #chat-launcher-btn {
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+    /* 3. ตัวกล่องแชท (สำคัญ!) */
+    .chatbot-card {
+        width: 100% !important; /* บังคับให้กว้างเต็มจอ */
+        height: 80vh; /* ให้สูง 80% ของหน้าจอมือถือ (ไม่เต็มร้อย เพื่อให้เห็นพื้นหลังเว็บนิดนึง) */
+        border-radius: 20px 20px 0 0; /* ให้มุมมนแค่ด้านบน (ด้านล่างตัดตรง) */
+        
+        /* ปรับตำแหน่งตอนซ่อน/แสดง */
+        transform: translateY(100%); /* ซ่อนโดยดันลงไปข้างล่างสุด */
+    }
+
+    /* อนิเมชั่นตอนเด้งขึ้นมาในมือถือ */
+    @keyframes popUp {
+        from { opacity: 0; transform: translateY(100%); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ปรับปุ่มข้างในให้ใหญ่ขึ้นหน่อยสำหรับนิ้วกด */
+    .faq-btn, .footer-btn {
+        padding: 15px; 
+    }
+}
