@@ -700,3 +700,212 @@ footer {
         height: 200px;
     }
 }
+/* =========================================
+   1. คอนเทนเนอร์หลัก (ตัวกำหนดตำแหน่งลอยมุมขวา)
+   ========================================= */
+.chatbot-widget-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999; /* อยู่บนสุด */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* ชิดขวา */
+    gap: 15px; /* ระยะห่างระหว่างปุ่มกับกล่อง */
+}
+
+/* =========================================
+   2. ปุ่มเปิดแชท (Launcher Button)
+   ========================================= */
+#chat-launcher-btn {
+    width: 60px;
+    height: 60px;
+    background-color: #f9a848; /* สีส้ม */
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex; /* เริ่มต้นให้แสดง */
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+#chat-launcher-btn:hover {
+    transform: scale(1.1);
+    background-color: #ffbd66;
+}
+
+/* =========================================
+   3. ตัวกล่องแชท (Chat Card)
+   ========================================= */
+.chatbot-card {
+    width: 350px;
+    height: 500px;
+    background-color: #ffffff;
+    border: 3px solid #f9a848;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    font-family: sans-serif;
+    
+    /* การซ่อนและอนิเมชั่น */
+    display: none; /* ซ่อนไว้ก่อน */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* คลาสที่จะถูกเติมด้วย JS เพื่อแสดงกล่อง */
+.chatbot-card.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: popUp 0.3s ease-out forwards;
+}
+
+@keyframes popUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   4. ส่วนประกอบภายใน (Header, Body, Footer)
+   ========================================= */
+
+/* Header */
+.chatbot-header {
+    background-color: #f9a848;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1e2b40;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.close-icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+/* Body (พื้นที่เนื้อหา) */
+.chatbot-body {
+    height: 360px; /* ปรับให้พอดีกับความสูงรวม */
+    padding: 15px;
+    overflow-y: auto;
+    background: #ffffff;
+    box-shadow: inset 0 10px 10px -10px rgba(0,0,0,0.1), 
+                inset 0 -10px 10px -10px rgba(0,0,0,0.1);
+}
+
+/* ปุ่มเลือกคำถาม */
+.faq-btn {
+    background-color: #fcae47;
+    color: #1e2b40;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.faq-btn:hover {
+    transform: scale(1.02);
+    background-color: #ffbd66;
+}
+
+/* กล่องข้อความแชท */
+.chat-bubble {
+    padding: 12px 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    position: relative;
+}
+.user-bubble {
+    background-color: #fcae47;
+    color: #1e2b40;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+.bot-response-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+}
+.bot-avatar-small {
+    font-size: 1.8rem;
+    min-width: 35px;
+}
+.bot-avatar-small img{
+    height: 35px;
+}
+.bot-bubble {
+    background-color: #1e2b40;
+    color: #ffffff;
+    border-radius: 0 15px 15px 15px;
+    padding-left: 30px;
+}
+
+/* Footer */
+.chatbot-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #f9a848;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+.footer-btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 70%;
+    text-align: center;
+}
+.main-btn {
+    background-color: #1e2b40;
+    color: #ffffff;
+}
+.back-btn {
+    background-color: #1e2b40;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.bot-mascot {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 70px;
+    height: 70px;
+    background-color: #fcebd0;
+    border-radius: 50%;
+    border: 3px solid #6d4c41;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.bot-mascot img {
+    width: 60%;
+    height: auto;
+}

@@ -49,8 +49,44 @@
     </header>
 
     <main>
-        
-        </main>
+        <div class="chatbot-widget-container">
+
+            <button id="chat-launcher-btn" onclick="toggleChatbot()">
+                💬
+            </button>
+
+            <div id="chatbot-card" class="chatbot-card">
+
+                <div class="chatbot-header">
+                    <span>คำถามที่พบบ่อย (FAQ) </span>
+                    <span class="close-icon" onclick="toggleChatbot()">✕</span>
+                </div>
+
+                <div class="chatbot-body">
+                    <div id="menu-view">
+                    </div>
+
+                    <div id="chat-view" style="display: none;">
+                        <div class="chat-bubble user-bubble" id="chat-question">...</div>
+                        <div class="bot-response-container">
+                            <div class="bot-avatar-small">🤖</div>
+                            <div class="chat-bubble bot-bubble" id="chat-answer">...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chatbot-footer">
+                    <div id="footer-menu-btn" class="footer-btn main-btn">Ask About IoT</div>
+                    <div id="footer-back-btn" class="footer-btn back-btn" onclick="goBack()" style="display: none;">↶
+                        BACK</div>
+                    <div class="bot-mascot">
+                        <img src="img/robot-icon.png" alt="Bot">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
 
     <footer>
         <div class="container">
@@ -76,7 +112,8 @@
                     <h3>CONTACT US</h3>
                     <div class="contact-item">
                         <i class="fa-solid fa-location-dot"></i>
-                        <p>ชั้น 12 อาคารเรียนรวม 12 ชั้น เลขที่ 1 ซอยฉลองกรุง 1 <br>แขวงลาดกระบัง เขตลาดกระบัง กรุงเทพมหานคร 10520</p>
+                        <p>ชั้น 12 อาคารเรียนรวม 12 ชั้น เลขที่ 1 ซอยฉลองกรุง 1 <br>แขวงลาดกระบัง เขตลาดกระบัง
+                            กรุงเทพมหานคร 10520</p>
                     </div>
                     <div class="contact-item">
                         <i class="fa-regular fa-envelope"></i>
