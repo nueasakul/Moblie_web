@@ -11,135 +11,85 @@
 </head>
 
 <body>
-    <div class="projects-grid">
 
-        <div class="project-card">
-            <button class="close-btn" onclick="closeCard(this)">&#10005;</button>
+    <header class="navbar" id="main-nav">
+        <div class="logo">
+            <img src="img/IoTeKMITL.png" alt="iGTE Logo">
+        </div>
 
-            <div class="card-img-wrapper">
-                <img src="img/Apirat.jpg" alt="Measurement Multimeter" class="card-img">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="menu-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About_IoT/IoT/index.html">About IoT</a></li>
+                <li class="dropdown">
+                    <a href="Academics/index.html">Academics <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Academics/IoT/index.html">IoT System and information</a></li>
+                        <li><a href="Academics/ComIoT/index.html">Computer Engineering & IoT</a></li>
+                    </ul>
+                </li>
+                <li><a href="Admission/index.html">Admission</a></li>
+                <li><a href="Contact/index.html">Contact</a></li>
+                <li><a href="Faculty/index.html">Faculty</a></li>
+                <li class="dropdown dropdown-right">
+                    <a href="Performance/index.html">Performance <span class="arrow">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Performance/DCL/index.html">Definition of Cybersecurity Lab</a></li>
+                        <li><a href="Performance/CLR/index.html">Cybersecurity Lab Researcher</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="logo">
+                    <img src="img/IoTeKMITL.png" alt="IoTE Logo">
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-line"></i></a>
+                </div>
             </div>
-            <h3 class="card-title">Measurement Multimeter</h3>
-            <p class="card-desc">อุปกรณ์วัดค่าที่สามารถวัดค่าได้หลากหลาย ตั้งแต่อุณหภูมิไปจนถึงปริมาณแก๊ส LPG
-                ในรูปแบบที่ไม่เหมือนใครอุปกรณ์วัดค่าที่สามารถวัดค่าได้หลากหลาย ตั้งแต่อุณหภูมิไปจนถึงปริมาณแก๊ส LPG
-                ในรูปแบบที่ไม่เหมือนใคi</p>
-
-            <button class="read-more-btn" onclick="openCard(this)">Read More</button>
-
-            <div class="card-details" style="display: none;">
-                <div class="detail-content-box">
-                    <div class="side-tab left-tab active" onclick="switchTab(this, 'tab-1')">หลักการทำงาน</div>
-                    <div class="side-tab right-tab" onclick="switchTab(this, 'tab-2')">วิธีการใช้งาน</div>
-
-                    <div class="tab-content tab-1">
-                        <p>วงจรจะใช้เซ็นเซอร์ 2 ตัว คือ DHT 22 Module<br>
-                            Temperature and Humidity<br>
-                            ใช้สำหรับตรวจจับอุณหภูมิและความชื้น และ MQ-5 LPG<br>
-                            เมื่อเกิดก๊าซรั่วไหล และมีอุปกรณ์ DS 3231 RTC Clock<br>
-                            Memory เพื่อจับเวลา</p>
+            <hr class="footer-line">
+            <div class="footer-bottom">
+                <div class="footer-col">
+                    <h3>ABOUT US</h3>
+                    <p><strong>Bachelor of Engineering</strong><br>(IoT System and Information)</p>
+                    <br>
+                    <p><strong>Dual Degree</strong><br>(B.Eng. IoT System + B.Sc. Industrial Physics)</p>
+                </div>
+                <div class="footer-col contact-info">
+                    <h3>CONTACT US</h3>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>ชั้น 12 อาคารเรียนรวม 12 ชั้น เลขที่ 1 ซอยฉลองกรุง 1 <br>แขวงลาดกระบัง เขตลาดกระบัง กรุงเทพมหานคร 10520</p>
                     </div>
-
-                    <div class="tab-content tab-2" style="display: none;">
-                        <p>เสียบสาย USB เพื่อจ่ายไฟแก่ระบบ จอแสดงข้อความ Measurement Multimeter<br>
-                            รอ 5 วินาที เครื่องจะทำงาน เมื่ออุณหภูมิมากกว่า 35°C เสียงเตือนจะดังขึ้น</p>
+                    <div class="contact-item">
+                        <i class="fa-regular fa-envelope"></i>
+                        <p>iote@kmitl.ac.th<br>pikulkaew.ta@kmitl.ac.th</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>02-329-8000 ext.5129<br>02-329-8301 ext.235</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="project-card">
-            <button class="close-btn" onclick="closeCard(this)">&#10005;</button>
-
-            <div class="card-img-wrapper">
-                <img src="img/Attasit.jpg" alt="Measurement Multimeter" class="card-img">
-            </div>
-            <h3 class="card-title">Measurement Multimeter</h3>
-            <p class="card-desc">อุปกรณ์วัดค่าที่สามารถวัดค่าได้หลากหลาย ตั้งแต่อุณหภูมิไปจนถึงปริมาณแก๊ส LPG
-                ในรูปแบบที่ไม่เหมือนใคร</p>
-
-            <button class="read-more-btn" onclick="openCard(this)">Read More</button>
-
-            <div class="card-details" style="display: none;">
-                <div class="detail-content-box">
-                    <div class="side-tab left-tab active" onclick="switchTab(this, 'tab-1')">หลักการทำงาน</div>
-                    <div class="side-tab right-tab" onclick="switchTab(this, 'tab-2')">วิธีการใช้งาน</div>
-
-                    <div class="tab-content tab-1">
-                        <p>วงจรจะใช้เซ็นเซอร์ 2 ตัว คือ DHT 22 Module<br>
-                            Temperature and Humidity<br>
-                            ใช้สำหรับตรวจจับอุณหภูมิและความชื้น และ MQ-5 LPG<br>
-                            เมื่อเกิดก๊าซรั่วไหล และมีอุปกรณ์ DS 3231 RTC Clock<br>
-                            Memory เพื่อจับเวลา</p>
-                    </div>
-
-                    <div class="tab-content tab-2" style="display: none;">
-                        <p>เสียบสาย USB เพื่อจ่ายไฟแก่ระบบ จอแสดงข้อความ Measurement Multimeter<br>
-                            รอ 5 วินาที เครื่องจะทำงาน เมื่ออุณหภูมิมากกว่า 35°C เสียงเตือนจะดังขึ้น</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="project-card">
-            <button class="close-btn" onclick="closeCard(this)">&#10005;</button>
-
-            <div class="card-img-wrapper">
-                <img src="img/Auttapon.jpg" alt="Measurement Multimeter" class="card-img">
-            </div>
-            <h3 class="card-title">Measurement Multimeter</h3>
-            <p class="card-desc">อุปกรณ์วัดค่าที่สามารถวัดค่าได้หลากหลาย ตั้งแต่อุณหภูมิไปจนถึงปริมาณแก๊ส LPG
-                ในรูปแบบที่ไม่เหมือนใคร</p>
-
-            <button class="read-more-btn" onclick="openCard(this)">Read More</button>
-
-            <div class="card-details" style="display: none;">
-                <div class="detail-content-box">
-                    <div class="side-tab left-tab active" onclick="switchTab(this, 'tab-1')">หลักการทำงาน</div>
-                    <div class="side-tab right-tab" onclick="switchTab(this, 'tab-2')">วิธีการใช้งาน</div>
-
-                    <div class="tab-content tab-1">
-                        <p>วงจรจะใช้เซ็นเซอร์ 2 ตัว คือ DHT 22 Module<br>
-                            Temperature and Humidity</p>
-                    </div>
-
-                    <div class="tab-content tab-2" style="display: none;">
-                        <p>เสียบสาย USB เพื่อจ่ายไฟแก่ระบบ จอแสดงข้อความ Measurement Multimeter<br>
-                            รอ 5 วินาที เครื่องจะทำงาน เมื่ออุณหภูมิมากกว่า 35°C เสียงเตือนจะดังขึ้น</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="project-card">
-            <button class="close-btn" onclick="closeCard(this)">&#10005;</button>
-
-            <div class="card-img-wrapper">
-                <img src="img/Boonchana.jpg" alt="Measurement Multimeter" class="card-img">
-            </div>
-            <h3 class="card-title">Measurement Multimeter</h3>
-            <p class="card-desc">อุปกรณ์วัดค่าที่สามารถวัดค่าได้หลากหลาย ตั้งแต่อุณหภูมิไปจนถึงปริมาณแก๊ส LPG
-                ในรูปแบบที่ไม่เหมือนใคร</p>
-
-            <button class="read-more-btn" onclick="openCard(this)">Read More</button>
-
-            <div class="card-details" style="display: none;">
-                <div class="detail-content-box">
-                    <div class="side-tab left-tab active" onclick="switchTab(this, 'tab-1')">หลักการทำงาน</div>
-                    <div class="side-tab right-tab" onclick="switchTab(this, 'tab-2')">วิธีการใช้งาน</div>
-
-                    <div class="tab-content tab-1">
-                        <p>วงจรจะใช้เซ็นเซอร์ 2 ตัว คือ DHT 22 Module<br>
-                            Temperature and Humidity<br>
-                            ใช้สำหรับตรวจจับอุณหภูมิและความชื้น และ MQ-5 LPG<br>
-                            เมื่อเกิดก๊าซรั่วไหล และมีอุปกรณ์ DS 3231 RTC Clock<br>
-                            Memory เพื่อจับเวลา</p>
-                    </div>
-
-                    <div class="tab-content tab-2" style="display: none;">
-                        <p>เสียบสาย USB เพื่อจ่ายไฟแก่ระบบ จอแสดงข้อความ Measurement Multimeter<br>
-                            รอ 5 วินาที เครื่องจะทำงาน เมื่ออุณหภูมิมากกว่า 35°C เสียงเตือนจะดังขึ้น</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </footer>
 
     <script src="Test2.js"></script>
 </body>
