@@ -1,31 +1,137 @@
-/* =========================================
-   1. RESET & GLOBAL STYLES (โครงสร้างหลัก)
-   ========================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
     font-family: 'Prompt', sans-serif;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* บังคับให้หน้าเว็บสูงเต็มจอเสมอ เพื่อให้ Footer อยู่ล่างสุด */
 }
 
-main {
-    flex: 1; /* ทำให้เนื้อหาตรงกลางขยายตัวดัน Footer ลงไปข้างล่าง */
-    padding-top: 80px; /* เว้นระยะด้านบนหลบ Header ที่ฟิกซ์ไว้ */
+body{
+    background:#d9d9d9;
+    padding-top: 100px;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+/* Navigation button*/
+.nav-bar{
+    background:#223645;
+    padding:25px 0;
+    display:flex;
+    justify-content:center;
+    gap:40px;
 }
 
+.nav-btn{
+    background:#c3914b;
+    color:#fff;
+    border:none;
+    padding:18px 150px;
+    font-size:18px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+.nav-btn.active{
+    background:#f2a84c;
+}
+
+.nav-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* Content Section */
+.content-section{
+    width:85%;
+    max-width:1100px;
+    margin:50px auto;
+    background:#eeeeee;
+    padding:40px;
+    border-radius:20px;
+}
+
+/* Title bar */
+.section-title{
+    background:#223645;
+    color:#fff;
+    padding:18px 25px;
+    border-radius:15px 15px 0 0;
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:30px;
+    position:relative;
+}
+
+.section-title::after{
+    content:"";
+    position:absolute;
+    bottom:-8px;
+    left:0;
+    width:200px;
+    height:8px;
+    background:#f2a84c;
+    border-radius:0 5px 5px 0;
+}
+
+/* Cards */
+.card{
+    background:#f4f4f4;
+    padding:25px;
+    margin-bottom:25px;
+    border-radius:18px;
+    border:1px solid #e0d4c5;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card.large{
+    padding:30px;
+}
+
+.card h3{
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.card p{
+    line-height:1.6;
+    color:#333;
+}
+
+.card.center{
+    text-align:center;
+}
+
+/* image */
+
+.image-section{
+    width:85%;
+    max-width:1100px;
+    margin:60px auto;
+}
+
+.image-frame{
+    border-radius:30px;
+    overflow:hidden;
+    background:#ffffff;
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.image-frame img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* Responsive */
+@media (max-width:768px){
+    .image-section{
+        width:92%;
+        margin:40px auto;
+    }
+
+    .image-frame{
+        border-radius:20px;
+    }
+}
 /* =========================================
    2. HEADER & NAVIGATION
    ========================================= */
@@ -129,37 +235,6 @@ main {
     left: 0;
     background-color: transparent;
 }
-.aca{
-    height: 400px;                 
-    background-image: url("a.jpg"); 
-    background-size: cover;        
-    background-position: center;   
-    background-repeat: no-repeat;
-
-    display: flex;
-    justify-content: center;       
-    align-items: center;           
-
-    position: relative;
-}
-
-
-.aca::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.4);   
-}
-
-
-.aca h1{
-    position: relative;
-    color: #fff;
-    font-size: 48px;
-    font-weight: 700;
-    z-index: 1;
-    -webkit-text-stroke: 2px #213443;  
-}
 
 /* =========================================
    4. FOOTER
@@ -191,9 +266,17 @@ footer {
     border-radius: 50%;
 }
 
-.social-icons a:nth-child(1) { background-color: #1877F2; }
-.social-icons a:nth-child(2) { background-color: #E4405F; }
-.social-icons a:nth-child(3) { background-color: rgb(20, 217, 49);}
+.social-icons a:nth-child(1) {
+    background-color: #1877F2;
+}
+
+.social-icons a:nth-child(2) {
+    background-color: #E4405F;
+}
+
+.social-icons a:nth-child(3) {
+    background-color: rgb(20, 217, 49);
+}
 
 .footer-line {
     border-top: 1px solid rgba(0, 0, 0, 0.2);
@@ -283,6 +366,7 @@ footer {
 }
 
 @media (max-width: 768px) {
+
     .footer-bottom,
     .footer-top {
         flex-direction: column;

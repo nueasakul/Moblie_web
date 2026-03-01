@@ -1,4 +1,6 @@
-/* รีเซ็ตค่าเริ่มต้น */
+/* =========================================
+   1. RESET & GLOBAL STYLES (โครงสร้างหลัก)
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -6,11 +8,30 @@
 }
 
 body {
-    font-family: 'Prompt', sans-serif; /* ใช้ฟอนต์ Prompt */
-    background-color: #ffffff; /* พื้นหลังสมมติเพื่อให้เห็น Header ชัดๆ */
+    font-family: 'Prompt', sans-serif;
+    background-color: #cccccc;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* บังคับให้หน้าเว็บสูงเต็มจอเสมอ เพื่อให้ Footer อยู่ล่างสุด */
 }
 
-/* --- Container ของ Header --- */
+main {
+    flex: 1;
+    /* ทำให้เนื้อหาตรงกลางขยายตัวดัน Footer ลงไปข้างล่าง */
+    padding-top: 80px;
+    /* เว้นระยะด้านบนหลบ Header ที่ฟิกซ์ไว้ */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   2. HEADER & NAVIGATION
+   ========================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -18,27 +39,23 @@ body {
     background-color: #F9A848;
     padding: 10px 40px;
     height: 80px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-
-    /* --- ส่วนที่เพิ่มเข้ามา --- */
-    position: fixed; /* ให้ลอยอยู่กับที่ */
-    top: 0; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
     width: 100%;
-    z-index: 1000; /* ให้อยู่บนสุดเสมอ */
-    transition: top 0.3s ease-in-out; /* เอฟเฟกต์เลื่อนขึ้นลงนุ่มๆ */
+    z-index: 1000;
+    transition: top 0.3s ease-in-out;
 }
 
-/* --- จัดการ Logo --- */
 .logo img {
-    height: 50px; /* กำหนดความสูงโลโก้ */
+    height: 50px;
     object-fit: contain;
 }
 
-/* --- จัดการรายการเมนู --- */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 2px;  /* <-- ของใหม่: ลด gap ลงเพื่อให้ปุ่มชิดกันมากขึ้น แล้วใช้ padding แทน */
+    gap: 2px;
 }
 
 .nav-links li a {
@@ -46,193 +63,104 @@ body {
     color: #000;
     font-weight: 600;
     font-size: 16px;
-    transition: all 0.5s ease; 
-
-    /* --- ส่วนที่เพิ่มขึ้นมาเพื่อขยายพื้นที่ --- */
-    display: block; /* ทำให้ลิงก์มีคุณสมบัติเป็นกล่อง เพื่อให้ padding ทำงานสมบูรณ์ */
-    padding: 20px 10px; /* เพิ่มพื้นที่ บนล่าง 10px, ซ้ายขวา 20px */
-    border-radius: 8px; /* เพิ่มความมนที่มุมเล็กน้อย (เผื่อใส่สีพื้นหลังตอน hover) */
+    transition: all 0.3s ease;
+    display: block;
+    padding: 15px 10px;
+    border-radius: 8px;
 }
 
-/* --- เอฟเฟกต์ตอนเอาเมาส์ชี้ (Hover) และสถานะ Active --- */
 .nav-links li a:hover,
 .nav-links li a.active {
     color: #fff;
     background-color: rgba(255, 123, 0, 0.658);
 }
 
-/* --- ลูกศร Dropdown --- */
 .arrow {
     font-size: 10px;
     margin-left: 5px;
-    vertical-align: middle;
 }
-/* --- การจัดการ Dropdown --- */
 
-/* 1. กำหนดให้เมนูหลักเป็นจุดอ้างอิง */
+/* =========================================
+   3. DROPDOWN MENU
+   ========================================= */
 .dropdown {
     position: relative;
 }
 
-/* 2. ดีไซน์กล่องเมนูย่อย (ปกติจะซ่อนอยู่) */
 .dropdown-menu {
-    display: none; /* ซ่อนไว้ก่อน */
-    position: absolute; /* ลอยอิสระเทียบกับปุ่มแม่ */
-    top: 120%; /* อยู่ใต้ปุ่มแม่พอดี */
+    display: none;
+    position: absolute;
+    top: 100%;
     left: 0;
-    background-color: #fff; /* พื้นหลังสีขาว */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* เงาให้ดูมีมิติ */
-    min-width: 250px; /* ความกว้างขั้นต่ำ (ปรับได้ถ้าข้อความยาว) */
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 250px;
     list-style: none;
-    padding: 10px 0; /* ระยะห่างบนล่างภายในกล่อง */
+    padding: 10px 0;
     border-radius: 10px;
-    z-index: 1000; /* ให้ลอยอยู่เหนือเลเยอร์อื่นๆ */
 }
 
-/* 3. สั่งให้แสดงเมื่อเอาเมาส์ชี้ที่ .dropdown (Hover) */
 .dropdown:hover .dropdown-menu {
     display: block;
 }
 
-/* 4. ตกแต่งลิ้งค์ข้างใน Dropdown */
 .dropdown-menu li a {
-    color: #333; /* สีตัวอักษรเข้ม */
-    padding: 10px 20px; /* ระยะห่างให้น่ากด */
+    color: #333;
+    padding: 10px 20px;
     display: block;
-    font-size: 14px; /* ขนาดตัวอักษรเล็กลงหน่อยเพื่อความสวยงาม */
-    font-weight: 400; /* ตัวธรรมดา ไม่หนา */
-    white-space: nowrap; /* ห้ามตัดบรรทัด (ถ้าข้อความยาวเกินให้ขยายกล่องเอา) */
+    font-size: 14px;
+    font-weight: 400;
 }
 
-/* 5. เปลี่ยนสีพื้นหลังเมื่อชี้ลิ้งค์ย่อย */
 .dropdown-menu li a:hover {
-    background-color: #f1f1f1; /* สีเทาอ่อนๆ */
-    color: #F9A848; /* ตัวหนังสือเปลี่ยนเป็นสีส้มธีมหลัก */
+    background-color: #f1f1f1;
+    color: #F9A848;
 }
-/* --- สร้างสะพานล่องหนเชื่อมปุ่มกับเมนู --- */
+
+.dropdown-right .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
 .dropdown-menu::before {
     content: "";
     display: block;
     position: absolute;
-    /* ความกว้างเท่ากับตัวเมนู */
     width: 100%;
-    /* ความสูงของสะพาน (ปรับให้พอดีกับช่องว่างที่มันห่าง) */
-    height: 20px; 
-    /* ดันสะพานขึ้นไปข้างบน เพื่อให้อยู่ระหว่างปุ่มกับเมนู */
-    top: -20px; 
+    height: 20px;
+    top: -20px;
     left: 0;
-    /* สีพื้นหลัง (ใส่สีแดงไว้เทสก่อน พอใช้จริงค่อยลบออกหรือเปลี่ยนเป็น transparent) */
-    /* background-color: red; */ 
-    background-color: transparent; 
+    background-color: transparent;
 }
-/* --- แก้ไขเฉพาะ Dropdown ที่ชิดขวา (Performance) --- */
-.dropdown-right .dropdown-menu {
-    left: auto;  /* ยกเลิกการยึดขอบซ้าย */
-    right: 0;    /* สั่งให้ยึดขอบขวาแทน */
-}
+
 /* =========================================
-   ส่วนที่เพิ่มใหม่: Hamburger & Mobile View
-   ========================================= */
-
-/* ดีไซน์ปุ่ม Hamburger (ปกติซ่อนไว้) */
-.menu-icon {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-.menu-icon span {
-    width: 25px; height: 3px; background-color: #000;
-    transition: 0.3s;
-}
-
-/* --- Responsive Layout (สำหรับจอมือถือ) --- */
-@media screen and (max-width: 950px) {
-    .navbar { padding: 10px 40px; }
-
-    /* แสดงปุ่ม Burger */
-    .menu-icon { display: flex; }
-
-    /* ซ่อนเมนูหลักไว้ก่อน */
-    #menu-container {
-        display: none; /* ซ่อน */
-        position: absolute;
-        top: 80px; 
-        left: 0; 
-        width: 100%;
-        background-color: #F9A848; /* ใช้สีเดียวกับ Header */
-        padding-bottom: 20px;
-        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-    }
-
-    /* คลาสนี้จะถูก JS เติมเข้ามาตอนกดปุ่ม */
-    #menu-container.show { display: block; }
-
-    /* จัดเรียงเมนูเป็นแนวตั้ง */
-    .nav-links {
-        flex-direction: column;
-        gap: 0; /* รีเซ็ต gap เดิม */
-    }
-
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-    }
-
-    /* ปรับแต่ง Dropdown ในมือถือ */
-    .dropdown-menu {
-        position: static; /* ไม่ให้ลอยแล้ว ให้แทรกเนื้อหาลงมาเลย */
-        width: 100%;
-        box-shadow: none;
-        background-color: #ffb865; /* สีพื้นหลัง Dropdown ให้เข้มขึ้นนิดนึงจะได้แยกออก */
-        display: none; /* ซ่อนไว้ก่อน */
-        padding: 0;
-    }
-    
-    /* ในมือถือ ให้แสดง Dropdown เมื่อ Hover (หรือจะเปลี่ยนเป็น Click ก็ได้) */
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-    
-    /* ซ่อนสะพานล่องหนในมือถือเพราะไม่จำเป็น */
-    .dropdown-menu::before { display: none; }
-}
-/* =========================================
-   4. FOOTER (ส่วนท้ายเว็บ)
+   4. FOOTER
    ========================================= */
 footer {
     background-color: #F9A848;
-    padding: 20px 0;
-    /* Compact size */
+    padding: 30px 0;
     color: #000;
     margin-top: auto;
     font-size: 14px;
 }
 
-/* --- Footer Top (Logo & Social) --- */
 .footer-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-}
-
-.footer-logo img {
-    height: 35px;
-    object-fit: contain;
+    margin-bottom: 15px;
 }
 
 .social-icons a {
     color: #fff;
     font-size: 16px;
     margin-left: 10px;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    text-decoration: none;
 }
 
 .social-icons a:nth-child(1) {
@@ -243,57 +171,108 @@ footer {
     background-color: #E4405F;
 }
 
-/* --- Footer Divider --- */
-.footer-line {
-    border: none;
-    border-top: 1px solid #333;
-    margin-bottom: 15px;
-    opacity: 0.3;
+.social-icons a:nth-child(3) {
+    background-color: rgb(20, 217, 49);
 }
 
-/* --- Footer Bottom (Content) --- */
+.footer-line {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
 .footer-bottom {
     display: flex;
     justify-content: space-between;
     gap: 30px;
 }
 
-.footer-col {
-    flex: 1;
-}
-
 .footer-col h3 {
-    font-weight: 700;
-    margin-bottom: 10px;
     font-size: 16px;
-    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 
-.footer-col p {
-    font-size: 13px;
-    line-height: 1.4;
-    margin-bottom: 5px;
-}
-
-/* --- Contact Info --- */
 .contact-item {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    gap: 10px;
 }
 
-.contact-item i {
-    width: 20px;
-    font-size: 14px;
-    margin-top: 3px;
+/* =========================================
+   5. RESPONSIVE (MOBILE VIEW สำหรับ Header & Footer)
+   ========================================= */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
 }
-/* กำหนดกรอบเนื้อหาไม่ให้กว้างเกินไป และอยู่กึ่งกลาง */
-.container {
-    width: 100%;
-    max-width: 1140px; /* จำกัดความกว้างสูงสุด */
-    margin: 0 auto;    /* จัดกึ่งกลางหน้าจอ */
-    padding: 0 20px;   /* เว้นขอบซ้ายขวาเล็กน้อย */
-    box-sizing: border-box; /* รวม padding ในความกว้าง */
+
+.menu-icon span {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    transition: 0.3s;
+}
+
+@media (max-width: 950px) {
+    .menu-icon {
+        display: flex;
+    }
+
+    #menu-container {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #F9A848;
+        padding-bottom: 20px;
+        flex-direction: column;
+    }
+
+    #menu-container.show {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        background-color: #F9A848;
+        display: none;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu li a {
+        color: #000;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .footer-bottom,
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+    }
 }
 /* =========================================
    Full Width Navigation Bar
@@ -490,5 +469,196 @@ body {
     
     .row-layout {
         flex-direction: column; /* ให้รูปและข้อความซ้อนกันเป็นแนวตั้ง */
+    }
+}
+/* ===== กรอบหัวข้อสีส้ม ===== */
+.div-wrapper {
+    width: fit-content;
+    margin: 0 auto 24px;
+    padding: 12px 32px;
+    background-color: #F9B151; /* ส้มใหม่ */
+    border-radius: 20px;
+}
+
+.text-wrapper {
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* ===== กรอบเนื้อหา ===== */
+.frame-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #213443; /* กรอบข้อความ */
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.element-disruptive {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #ffffff;
+}
+
+/* ===== Section รูป + อาชีพ ===== */
+.new-about-iot {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.frame {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.rectangle {
+    width: 380px;
+    max-width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.iot-engineer {
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #213443;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .frame {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rectangle {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+/* ===== Section ===== */
+.content-section {
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 0 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== กล่องส้ม ===== */
+.title-tag {
+    display: inline-block;
+    background-color: #F4A640;
+    color: #fff;
+    padding: 30px 50px;
+    border-radius: 20px 20px 0 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+
+.content-section:nth-child(even) .title-tag {
+    align-self: flex-start;
+}
+
+
+.content-section:nth-child(odd) .title-tag {
+    align-self: flex-end;
+}
+
+/* ===== กล่องน้ำเงิน ===== */
+.content-box {
+    background-color: #213443;
+    color: #fff;
+    padding: 50px;
+    border-radius: 20 20px 20px 20px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .title-tag.left,
+    .title-tag.right {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+    .content-box {
+        padding-top: 60px;
+    }
+}
+/* ===== Career Section ===== */
+/* ===== Career Pathway Section ===== */
+
+.career-section-wrapper {
+    max-width: 1200px;
+    margin: 120px auto;
+    padding: 0 20px;
+}
+
+/* หัวข้อส้ม */
+.career-title {
+    display: inline-block;
+    background-color: #F4A640;
+    color: #fff;
+    padding: 25px 50px;
+    font-size: 32px;
+    font-weight: 700;
+    border-radius: 20px 20px 0 0;
+}
+
+/* กล่องน้ำเงิน */
+.career-box {
+    background-color: #213443;
+    padding: 50px;
+    border-radius: 20px 20px 20px 20px;
+}
+
+/* layout รูป + list */
+.career-flex {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+/* รูป */
+.career-image img {
+    width: 420px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* รายการ */
+.career-list ul {
+    color: #fff;
+    line-height: 1.8;
+    font-size: 16px;
+    padding-left: 20px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+
+    .career-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .career-image img {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .career-title {
+        font-size: 26px;
     }
 }
