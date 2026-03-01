@@ -12,12 +12,15 @@ body {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* บังคับให้หน้าเว็บสูงเต็มจอเสมอ เพื่อให้ Footer อยู่ล่างสุด */
+    min-height: 100vh;
+    /* บังคับให้หน้าเว็บสูงเต็มจอเสมอ เพื่อให้ Footer อยู่ล่างสุด */
 }
 
 main {
-    flex: 1; /* ทำให้เนื้อหาตรงกลางขยายตัวดัน Footer ลงไปข้างล่าง */
-    padding-top: 80px; /* เว้นระยะด้านบนหลบ Header ที่ฟิกซ์ไว้ */
+    flex: 1;
+    /* ทำให้เนื้อหาตรงกลางขยายตัวดัน Footer ลงไปข้างล่าง */
+    padding-top: 80px;
+    /* เว้นระยะด้านบนหลบ Header ที่ฟิกซ์ไว้ */
 }
 
 .container {
@@ -160,9 +163,17 @@ footer {
     border-radius: 50%;
 }
 
-.social-icons a:nth-child(1) { background-color: #1877F2; }
-.social-icons a:nth-child(2) { background-color: #E4405F; }
-.social-icons a:nth-child(3) { background-color: rgb(20, 217, 49);}
+.social-icons a:nth-child(1) {
+    background-color: #1877F2;
+}
+
+.social-icons a:nth-child(2) {
+    background-color: #E4405F;
+}
+
+.social-icons a:nth-child(3) {
+    background-color: rgb(20, 217, 49);
+}
 
 .footer-line {
     border-top: 1px solid rgba(0, 0, 0, 0.2);
@@ -252,6 +263,7 @@ footer {
 }
 
 @media (max-width: 768px) {
+
     .footer-bottom,
     .footer-top {
         flex-direction: column;
