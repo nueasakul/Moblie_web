@@ -8,13 +8,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="Test2.css">
+    <link rel="stylesheet" href="../Original/Original.css">
+
 </head>
 
 <body>
 
     <header class="navbar" id="main-nav">
         <div class="logo">
-            <img src="img/IoTeKMITL.png" alt="iGTE Logo">
+            <img src="IoTeKMITL.png" alt="iGTE Logo">
         </div>
 
         <div class="menu-icon" onclick="toggleMenu()">
@@ -48,51 +50,11 @@
         </nav>
     </header>
 
-    <main>
-        <div class="chatbot-widget-container">
-
-            <button id="chat-launcher-btn" onclick="toggleChatbot()">
-                💬
-            </button>
-
-            <div id="chatbot-card" class="chatbot-card">
-
-                <div class="chatbot-header">
-                    <span>คำถามที่พบบ่อย (FAQ) </span>
-                    <span class="close-icon" onclick="toggleChatbot()">✕</span>
-                </div>
-
-                <div class="chatbot-body">
-                    <div id="menu-view">
-                    </div>
-
-                    <div id="chat-view" style="display: none;">
-                        <div class="chat-bubble user-bubble" id="chat-question">...</div>
-                        <div class="bot-response-container">
-                            <div class="bot-avatar-small">🤖</div>
-                            <div class="chat-bubble bot-bubble" id="chat-answer">...</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="chatbot-footer">
-                    <div id="footer-menu-btn" class="footer-btn main-btn">Ask About IoT</div>
-                    <div id="footer-back-btn" class="footer-btn back-btn" onclick="goBack()" style="display: none;">↶
-                        BACK</div>
-                    <div class="bot-mascot">
-                        <img src="img/robot-icon.png" alt="Bot">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
     <footer>
         <div class="container">
             <div class="footer-top">
                 <div class="logo">
-                    <img src="img/IoTeKMITL.png" alt="IoTE Logo">
+                    <img src="IoTeKMITL.png" alt="IoTE Logo">
                 </div>
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-facebook"></i></a>
