@@ -1,144 +1,22 @@
-/* =========================================
-   1. GLOBAL STYLES & RESET
-   ========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* outline: auto; */
 }
 
 body {
-    /* ใช้ Prompt ตามที่ Link มาใน HTML */
-    font-family: 'Prompt', sans-serif; 
-    background-color: #f4f4f4;
-    
-    /* [แก้ปัญหาข้อ 1] ดันเนื้อหาลงมา 100px เพื่อหนี Navbar ที่ Fixed อยู่ */
-    padding-top: 100px; 
+    font-family: 'Pathway Extreme', sans-serif;
+    margin-top: 90px;
 }
-
 /* =========================================
-   2. NAVBAR (MENU)
-   ========================================= */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #F9A848;
-    padding: 10px 40px;
-    height: 80px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    
-    /* Fixed Position */
-    position: fixed;
-    top: 0;
-    left: 0; /* เพิ่ม left: 0 เพื่อความชัวร์ */
-    width: 100%;
-    z-index: 1000;
-    transition: top 0.3s ease-in-out;
-}
-
-.logo img {
-    height: 50px;
-    object-fit: contain;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #000;
-    font-weight: 600;
-    font-size: 16px;
-    transition: all 0.5s ease;
-    display: block;
-    padding: 20px 10px;
-    border-radius: 8px;
-}
-
-.nav-links li a:hover,
-.nav-links li a.active {
-    color: #fff;
-    background-color: rgba(255, 123, 0, 0.658);
-}
-
-.arrow {
-    font-size: 10px;
-    margin-left: 5px;
-    vertical-align: middle;
-}
-
-/* Dropdown Logic */
-.dropdown { position: relative; }
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%; /* แก้จาก 120% เป็น 100% เพื่อให้เชื่อมต่อง่ายขึ้น */
-    left: 0;
-    background-color: #fff;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    min-width: 250px;
-    list-style: none;
-    padding: 10px 0;
-    border-radius: 10px;
-    z-index: 1000;
-}
-
-.dropdown:hover .dropdown-menu { display: block; }
-
-.dropdown-menu li a {
-    color: #333;
-    padding: 10px 20px;
-    display: block;
-    font-size: 14px;
-    font-weight: 400;
-    white-space: nowrap;
-}
-
-.dropdown-menu li a:hover {
-    background-color: #f1f1f1;
-    color: #F9A848;
-}
-
-/* สะพานเชื่อม Dropdown */
-.dropdown-menu::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 20px;
-    top: -20px;
-    left: 0;
-    background-color: transparent;
-}
-
-.dropdown-right .dropdown-menu {
-    left: auto;
-    right: 0;
-}
-
-/* Hamburger Menu Icon */
-.menu-icon {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-.menu-icon span {
-    width: 25px; height: 3px; background-color: #000;
-    transition: 0.3s;
-}
-
-/* =========================================
-   3. ADMISSION SECTION
+   3. ADMISSION SECTION (ส่วนรับสมัคร)
    ========================================= */
 .admission-section {
     width: 100%;
     margin-bottom: 50px;
+    /* เพิ่มระยะห่างด้านบนหน่อย เพราะไม่มี padding-top ที่ body แล้ว */
+    margin-top: 40px; 
 }
 
 .admission-header {
@@ -167,7 +45,7 @@ body {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-between;
-    align-items: center; /* เปลี่ยนจาก center เป็น stretch เพื่อให้การ์ดสูงเท่ากัน (Optional) */
+    align-items: stretch; /* ปรับให้สูงเท่ากัน */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -193,17 +71,17 @@ body {
 /* Admission Rounds Buttons */
 .admission-rounds {
     flex: 1;
-    /* [แก้ปัญหาข้อ 3] เอา min-width 400px ออก หรือเปลี่ยนเป็น auto เพื่อไม่ให้จอมือถือพัง */
     min-width: 300px; 
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 25px;
 }
 
 .round-row {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* หรือ space-between */
+    justify-content: space-between;
 }
 
 .round-btn {
@@ -216,7 +94,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 155px; /* เพิ่มความกว้างนิดหน่อย */
+    width: 155px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -292,12 +170,12 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
-    height: auto; /* เปลี่ยนจาก 70px เป็น auto เผื่อชื่อโครงการยาว */
+    height: auto;
     min-height: 70px;
     border: none;
     text-align: left;
     outline: none;
-    font-family: 'Prompt', sans-serif;
+    /* ลบ font-family: Prompt ออก เพื่อให้ใช้ฟอนต์หลักของเว็บ */
 }
 
 .project-item:hover, .project-item.active {
@@ -316,7 +194,7 @@ body {
     justify-content: center;
     transition: 0.3s;
     flex-shrink: 0;
-    margin-left: 15px; /* เพิ่มระยะห่างจากตัวหนังสือ */
+    margin-left: 15px;
 }
 
 .circle-icon i { color: #fff; font-size: 16px; }
@@ -348,121 +226,9 @@ body {
 .content-inner ul { margin-top: 5px; padding-left: 20px; }
 
 /* =========================================
-   5. FOOTER
-   ========================================= */
-footer {
-    background-color: #F9A848;
-    padding: 20px 0;
-    color: #000;
-    margin-top: 50px;
-}
-
-.container {
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.footer-logo img { height: 35px; object-fit: contain; }
-
-.social-icons a {
-    color: #fff;
-    font-size: 16px;
-    margin-left: 10px;
-    width: 30px;
-    height: 30px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    text-decoration: none;
-}
-.social-icons a:nth-child(1) { background-color: #1877F2; }
-.social-icons a:nth-child(2) { background-color: #E4405F; }
-
-.footer-line {
-    border: none;
-    border-top: 1px solid #333;
-    margin-bottom: 15px;
-    opacity: 0.3;
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    flex-wrap: wrap; /* ให้ Footer ย่อลงมาได้เมื่อจอเล็ก */
-}
-
-.footer-col { flex: 1; min-width: 250px; }
-
-.footer-col h3 {
-    font-weight: 700;
-    margin-bottom: 10px;
-    font-size: 16px;
-    text-transform: uppercase;
-}
-
-.footer-col p {
-    font-size: 13px;
-    line-height: 1.4;
-    margin-bottom: 5px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 8px;
-}
-
-.contact-item i {
-    width: 20px;
-    font-size: 14px;
-    margin-top: 3px;
-}
-
-/* =========================================
-   6. RESPONSIVE (MOBILE)
+   6. RESPONSIVE (ADMISSION ONLY)
    ========================================= */
 @media screen and (max-width: 950px) {
-    .navbar { padding: 10px 20px; }
-    .menu-icon { display: flex; }
-    
-    #menu-container {
-        display: none;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background-color: #F9A848;
-        padding-bottom: 20px;
-        box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-    }
-
-    #menu-container.show { display: block; }
-    
-    .nav-links { flex-direction: column; gap: 0; }
-    .nav-links li { width: 100%; text-align: center; }
-    
-    .dropdown-menu {
-        position: static;
-        width: 100%;
-        box-shadow: none;
-        background-color: #ffb865;
-        display: none;
-        padding: 0;
-    }
-    
-    .dropdown:hover .dropdown-menu { display: block; }
-    .dropdown-menu::before { display: none; }
-
     /* ปรับ Layout หน้า Admission ในมือถือ */
     .admission-container { flex-direction: column; padding: 20px; width: 90%; }
     .course-card, .admission-rounds { width: 100%; min-width: auto; }

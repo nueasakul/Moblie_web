@@ -1,10 +1,11 @@
 body{
     margin: 0px 50px;
+    font-family: 'Pathway Extreme', sans-serif;
+
 }/* คอนเทนเนอร์หลัก */
 .news-detail-page {
     background-color: #ffffff;
     padding: 40px 0;
-    font-family: 'Prompt', sans-serif;
 }
 
 /* --- Header Section --- */
