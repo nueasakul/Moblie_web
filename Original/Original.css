@@ -213,7 +213,7 @@ footer {
     transition: 0.3s;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1000px) {
     .menu-icon {
         display: flex;
     }
