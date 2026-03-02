@@ -5,343 +5,367 @@
     /* outline: auto; */
 }
 
-body {
-    font-family: 'Pathway Extreme', sans-serif;
-    background-color: #333;
-    /* พื้นหลังสมมติเพื่อให้เห็น Header ชัดๆ */
-}
-
-/* =========================================
-   Academics Section (ส่วนหัวข้อและการ์ดหลักสูตร)
-   ========================================= */
-.academics-title-bar {
-    background-color: #24354a;
-    /* สีน้ำเงินเข้ม */
+/* Header aca */
+.header {
+    background: #233847;
+    padding: 40px 0;
     text-align: center;
-    padding: 40px;
-    /* เว้นระยะลงมาเพราะ Navbar เป็นแบบ Fixed */
-    margin-top: 80px;
 }
 
-.academics-title-bar h2 {
-    color: white;
-    font-size: 2.5rem;
-    margin: 0;
+.header h1 {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
 }
 
-.academics-content-area {
-    background-color: #faebd7;
-    /* สีพื้นหลังครีมไข่ไก่ */
-    padding: 50px 20px;
+/* layout */
+.main-section {
+    padding: 60px;
+}
+
+.card-wrapper {
     display: flex;
-    justify-content: center;
-}
-
-.academics-grid {
-    display: flex;
-    flex-wrap: wrap;
     gap: 40px;
-    max-width: 1200px;
-    width: 100%;
-    align-items: stretch;
-    /* ทำให้การ์ด 2 ฝั่งสูงเท่ากันเสมอ */
 }
 
-/* --- ตัวการ์ด --- */
-.acad-card {
-    flex: 1 1 450px;
-    /* ถ้าจอกว้างจะแบ่งครึ่ง ถ้าจอแคบจะตกลงมา */
-    background-color: #e2e2e2;
-    /* สีเทาอ่อนของตัวการ์ด */
-    border-radius: 12px;
+/* 1d white content card */
+.card {
+    flex: 1;
+    background: #d8d8d8;
+    border-radius: 15px;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    align-self: flex-start;
 }
 
-/* หัวการ์ดสีส้ม + จุด macOS */
-.acad-card-header {
-    background-color: #ffaa33;
-    /* สีส้ม */
-    padding: 25px 20px;
+/* title 1d */
+.card-header {
+    background: #eda74a;
+    padding: 35px 25px;
     position: relative;
     text-align: center;
 }
 
-.mac-dots {
+.card-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* 3dots */
+.dots {
     position: absolute;
-    top: 15px;
+    top: 12px;
     left: 15px;
     display: flex;
     gap: 6px;
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    border: 1px solid white;
 }
 
-.dot-red {
-    background-color: #ff5f56;
+.red {
+    background: #FF0000;
 }
 
-.dot-yellow {
-    background-color: #ffbd2e;
+.yellow {
+    background: #FFF70C;
 }
 
-.dot-white {
-    background-color: white;
+/* content card */
+.card-content {
+    padding: 25px;
+    font-size: 16px;
+    line-height: 1.8;
 }
 
-.acad-card-header h3 {
-    margin: 0;
-    color: #1a1a1a;
-    font-size: 1.3rem;
-    font-weight: 600;
-}
-
-/* เนื้อหาภายในการ์ด */
-.acad-card-body {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    /* ดันให้ปุ่ม Accordion ไปอยู่ล่างสุดเสมอ */
-}
-
-.acad-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 25px;
-    text-align: justify;
-}
-
-.acad-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 30px;
-}
-
-/* =========================================
-   Accordion (ปุ่มกดขยายในกล่อง)
-   ========================================= */
-.accordion-wrapper {
-    width: 100%;
-    margin-top: auto;
-    /* ดันปุ่มนี้ไปติดขอบล่างสุดของการ์ดเสมอ */
-}
-
-.accordion-item {
-    background-color: #24354a;
-    /* สีกรมท่า */
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 0;
-    /* รีเซ็ตเผื่อมีค่าเดิม */
-}
-
-.accordion-header {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 15px 25px;
+/* button slideshow */
+.toggle-btn {
+    background: #233847;
+    color: #fff;
+    margin: 22px;
+    padding: 15px 20px;
+    border-radius: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    color: white;
-    font-size: 1.1rem;
-    font-family: 'Prompt', sans-serif;
-    font-weight: 600;
-    transition: background-color 0.3s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.accordion-header:hover {
-    background-color: #2c415a;
-}
-
-.header-left {
+.left {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 }
 
-/* ปุ่มวงกลมลูกศร */
-.toggle-icon {
-    background-color: #fcb045;
-    width: 35px;
-    height: 35px;
+.icon-box {
+    font-size: 22px;
+}
+
+.arrow-circle {
+    width: 40px;
+    height: 40px;
+    background: #f5a623;
     border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: white;
-    box-shadow: 0 0 15px rgba(252, 176, 69, 0.6);
-    transition: transform 0.4s ease;
+    justify-content: center;
+    font-size: 18px;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.7);
 }
 
-.accordion-item.active .toggle-icon {
+/* content flow & arrow */
+.toggle-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.card.active .arrow-circle {
     transform: rotate(180deg);
 }
 
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out;
-    background-color: #24354a;
+.gold-line {
+    height: 3px;
+    background: #eda74a;
 }
 
-.accordion-item.active .accordion-content {
-    border-top: 2px solid #e19209;
-}
-
-.content-inner {
-    padding: 25px 20px;
+/* กล่องที่สไลด์ลงมาตอนกดปุ่ม */
+.fee-box {
+    background: #233847;
+    color: #fff;
     text-align: center;
-    color: white;
+    padding: 30px;
+    border-radius: 0 0 15px 15px;
 }
 
-.content-inner h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.3rem;
-    font-weight: 400;
+.fee-box h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
 }
 
-.content-inner .price {
-    font-size: 2rem;
-    font-weight: 600;
-    margin: 0 0 5px 0;
-}
-
-.content-inner p {
-    margin: 0;
-    font-size: 1.1rem;
-    color: #e0e0e0;
-}
-
-
-/* =========================================
-   Curriculum Section (ส่วนแสดงแผนการเรียนรูปภาพ)
-   ========================================= */
-.curriculum-section {
-    width: 100%;
-    background-color: #e0e0e0;
-    padding: 80px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 80px;
-}
-
-.curriculum-wrapper {
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* สไตล์กล่องหัวข้อ (Tab) */
-.curriculum-tab {
-    background-color: #ffffff;
-    border: 3px solid #1e2b40;
-    border-radius: 12px;
-    padding: 15px 30px;
-    padding-bottom: 35px;
-    margin-bottom: 20px;
-    position: relative;
-    display: inline-block;
-    max-width: 90%;
-}
-
-.curriculum-tab h3 {
-    margin: 0;
-    font-size: 1.2rem;
+.price {
+    font-size: 36px;
     font-weight: 700;
-    color: #000000;
-    line-height: 1.6;
-    text-align: left;
 }
 
-/* ลายเส้นปะสีส้ม */
-.curriculum-tab::after {
-    content: "";
-    position: absolute;
-    bottom: 12px;
-    right: 20px;
-    width: 120px;
-    height: 6px;
-    background: repeating-linear-gradient(to right,
-            #F9A848 0,
-            #F9A848 20px,
-            transparent 20px,
-            transparent 25px);
+.fee-box p {
+    font-size: 18px;
 }
 
-/* จัดตำแหน่งซ้าย-ขวา */
-.align-left {
+/* image */
+.content-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+/* ivon button */
+.btn-icon {
+    width: 30px;
+    height: px;
+}
+
+.academic-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.right-column {
     align-self: flex-start;
 }
 
-.align-right {
-    align-self: flex-end;
+.course-link {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 600;
 }
 
-/* เฟรมพื้นหลังสำหรับรูป */
-.curriculum-frame {
-    background-image: url('img/stripe.JPG');
-    width: 100%;
-    padding: 50px;
-    border-radius: 12px;
+.course-link:hover {
+    opacity: 0.8;
 }
 
-.curriculum-img {
+body {
+    margin-top: 90px;
+    font-family: 'Pathway Extreme', sans-serif;
+    background: #FEEFDC;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* stripe overlay l */
+body::before {
+    content: "";
+
+    top: 0;
+    left: 1;
     width: 100%;
-    height: auto;
+    height: 100%;
+    background: url("background-pattern.png") left center no-repeat;
+    background-size: cover;
+    opacity: 0.25;
+    z-index: -1;
+}
+
+/* stripe overlay r */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: url("background-pattern.png") right center no-repeat;
+    background-size: cover;
+    opacity: 0.25;
+    z-index: -1;
+}
+
+.program-section {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* กล่องหลัก */
+.program-wrapper {
+    margin-bottom: 80px;
+}
+
+/* ตำแหน่งกรอบ */
+
+.top-box .main-img {
+    width: 85%;
     display: block;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    /* ดันไปขวา */
 }
 
-/* =========================================
-   Responsive (สำหรับหน้าจอมือถือ)
-   ========================================= */
-@media screen and (max-width: 768px) {
 
-    /* Academics */
-    .academics-grid {
+.bottom-box .main-img {
+    width: 85%;
+    display: block;
+    margin-right: auto;
+    /* ดันไปซ้าย */
+}
+
+/* หัวข้อกรอบ */
+.program-header {
+    position: relative;
+    display: block;
+    width: 35%;
+    padding: 12px 28px;
+    font-weight: 700;
+    font-size: 22px;
+    border: 4px solid #2c3e50;
+    border-radius: 20px;
+}
+
+.top-box .program-header {
+    margin-right: auto;
+}
+
+.bottom-box .program-header {
+    margin-left: auto;
+}
+
+/* เส้นกรอบซ้อน */
+.program-header::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 3px;
+    right: -8px;
+    bottom: 3px;
+    border: 3px solid #2c3e50;
+    border-radius: 20px;
+    z-index: -1;
+}
+
+/* แถบส้ม */
+.orange-bars {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.orange-bars span {
+    background: #f39c12;
+    display: block;
+}
+
+.orange-bars span:nth-child(1) {
+    width: 8px;
+    height: 3px;
+}
+
+.orange-bars span:nth-child(2) {
+    width: 18px;
+    height: 4px;
+}
+
+.orange-bars span:nth-child(3) {
+    width: 25px;
+    height: 5px;
+}
+
+.orange-bars span:nth-child(4) {
+    width: 35px;
+    height: 6px;
+}
+
+.orange-bars span:nth-child(5) {
+    width: 45px;
+    height: 8px;
+}
+
+.orange-bars span:nth-child(6) {
+    width: 55px;
+    height: 10px;
+}
+
+/* stripe */
+.top-box .main-img,
+.bottom-box .main-img {
+    width: 100%;
+    margin: 0;
+}
+
+/* 1. กล่องแม่: กำหนดจุดอ้างอิง */
+.image-container {
+    position: relative; 
+    width: 100%;
+    max-width: 100%;
+}
+
+/* 3. รูปที่จะทับ: สั่งให้ลอย */
+.overlay-img {
+    position: absolute; /* คำสั่งสำคัญ! */
+    top: 50%;  /* ให้ชิดขอบบนสุดของกล่องแม่ */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* การจัดขนาดรูปที่ทับ (เลือกแบบใดแบบหนึ่ง) */
+    width: 90%;  /* ถ้าอยากให้ขยายเต็มทับรูปหลังพอดี */
+    object-fit: cover; /* ป้องกันภาพเบี้ยว */
+    
+    z-index: 2; /* (Optional) มั่นใจว่าอยู่บนสุดเสมอ */
+    opacity: 0.8; /* (Optional) ปรับโปร่งใสเพื่อให้เห็นพื้นหลังหน่อยๆ */
+}
+
+
+/* RESPONSIVE */
+@media(max-width:900px) {
+    .card-wrapper {
         flex-direction: column;
-    }
-
-    .acad-card {
-        flex: 1 1 auto;
-    }
-
-    /* Curriculum */
-    .curriculum-section {
-        padding: 50px 15px;
-        gap: 50px;
-    }
-
-    .curriculum-tab {
-        align-self: center;
-        /* ในมือถือให้กล่องอยู่ตรงกลางทั้งหมด */
-        max-width: 100%;
-        padding: 15px 20px;
-        padding-bottom: 30px;
-    }
-
-    .curriculum-tab h3 {
-        font-size: 1rem;
-    }
-
-    .curriculum-frame {
-        padding: 20px;
     }
 }
