@@ -65,6 +65,8 @@ body {
     display: flex;
 }
 .option a {
+    text-align: center;
+    height: max-content;
     background-color: #969696a0;
     border-radius: 8px;
     margin: 0 30px;
