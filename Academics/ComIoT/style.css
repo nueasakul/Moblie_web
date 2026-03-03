@@ -262,7 +262,7 @@ body {
 
 /* เฟรมพื้นหลังสำหรับรูป */
 .curriculum-frame {
-    background-image: url('img/1.jpg'); 
+    background-image: url('../IoT/img/stripe.JPG'); 
     width: 100%;
     padding: 50px;
     border-radius: 12px; 

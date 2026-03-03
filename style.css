@@ -51,7 +51,7 @@ main {
     align-items: center;
     position: relative;
     /* ลบ margin-top: 80px ออกเพื่อให้ชิดขอบบน */
-    margin-top: 0; 
+    margin-top: 0;
 }
 
 .hero-top::before {
@@ -202,7 +202,7 @@ main {
 
 /* แบบที่ 2: รูปภาพขนาดใหญ่ตรงกลาง */
 .slider-style-2 {
-    padding: 60px 40px;
+    padding: 20px 40px 60px 40px;
     display: flex;
     justify-content: center;
 }
@@ -280,6 +280,37 @@ main {
     font-weight: 600;
 }
 
+.new-header {
+    display: flex;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px 80px;
+    justify-content: space-between;
+    align-items: end;
+    flex-direction: row;
+    padding-top: 50px;
+}
+
+.new-header h2 {
+    width: max-content;
+    font-size: 2.2rem;
+    text-align: start;
+    font-weight: 600;
+
+}
+
+.new-header .view-all {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s;
+    height: max-content;
+}
+
+.new-header .view-all:hover {
+    color: #F9A848;
+}
+
 .news-header .view-all {
     color: #1e2b40;
     text-decoration: none;
@@ -295,7 +326,6 @@ main {
 .news-divider {
     height: 4px;
     background-color: #d1d5db;
-    margin-bottom: 40px;
     position: relative;
     border-radius: 2px;
 }
@@ -309,6 +339,25 @@ main {
     height: 100%;
     background-color: #F9A848;
     border-radius: 2px;
+}
+
+.new-divider {
+    height: 4px;
+    background-color: #d1d5db;
+    position: relative;
+    border-radius: 2px;
+}
+
+.new-divider::before {
+    
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    height: 100%;
+    border-radius: 2px;
+    background-color: #dddcdc;
 }
 
 .news-grid {
@@ -368,7 +417,7 @@ main {
     background-color: #f9a848;
     border: none;
     border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     font-size: 1.5rem;
     display: flex;
@@ -389,7 +438,7 @@ main {
     border: 3px solid #f9a848;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     font-family: sans-serif;
     display: none;
     opacity: 0;
@@ -405,8 +454,15 @@ main {
 }
 
 @keyframes popUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .chatbot-header {
@@ -431,8 +487,8 @@ main {
     padding: 15px;
     overflow-y: auto;
     background: #ffffff;
-    box-shadow: inset 0 10px 10px -10px rgba(0,0,0,0.1), 
-                inset 0 -10px 10px -10px rgba(0,0,0,0.1);
+    box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.1),
+        inset 0 -10px 10px -10px rgba(0, 0, 0, 0.1);
 }
 
 .faq-btn {
@@ -448,7 +504,7 @@ main {
     cursor: pointer;
     text-align: left;
     transition: transform 0.2s, background-color 0.2s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .faq-btn:hover {
@@ -486,7 +542,7 @@ main {
     min-width: 35px;
 }
 
-.bot-avatar-small img{
+.bot-avatar-small img {
     height: 35px;
 }
 
@@ -575,12 +631,20 @@ main {
     }
 
     @keyframes popUp {
-        from { opacity: 0; transform: translateY(100%); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
-    .faq-btn, .footer-btn {
-        padding: 15px; 
+    .faq-btn,
+    .footer-btn {
+        padding: 15px;
     }
 }
 
@@ -589,6 +653,7 @@ main {
    ========================================= */
 
 @media (max-width: 950px) {
+
     /* Responsive เนื้อหา Hero และอื่นๆ */
     .news-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -613,6 +678,7 @@ main {
 }
 
 @media (max-width: 768px) {
+
     /* Responsive Slider */
     .slide-item {
         grid-template-columns: 1fr;
