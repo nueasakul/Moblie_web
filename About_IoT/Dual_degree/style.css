@@ -1,357 +1,81 @@
-/* รีเซ็ตค่าเริ่มต้น */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Prompt', sans-serif;
+    /* outline: auto; */
 }
 
 body {
-    font-family: 'Prompt', sans-serif;
-    /* ใช้ฟอนต์ Prompt */
-    background-color: #ffffff;
-    /* พื้นหลังสมมติเพื่อให้เห็น Header ชัดๆ */
-}
-
-/* --- Container ของ Header --- */
-.navbar {
+    background-color: #cccccc; /* สีพื้นหลังหลัก */
+    font-family: 'Pathway Extreme', sans-serif;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #F9A848;
-    padding: 10px 40px;
-    height: 80px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-    /* --- ส่วนที่เพิ่มเข้ามา --- */
-    position: fixed;
-    /* ให้ลอยอยู่กับที่ */
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    /* ให้อยู่บนสุดเสมอ */
-    transition: top 0.3s ease-in-out;
-    /* เอฟเฟกต์เลื่อนขึ้นลงนุ่มๆ */
-}
-
-/* --- จัดการ Logo --- */
-.logo img {
-    height: 50px;
-    /* กำหนดความสูงโลโก้ */
-    object-fit: contain;
-}
-
-/* --- จัดการรายการเมนู --- */
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2px;
-    /* <-- ของใหม่: ลด gap ลงเพื่อให้ปุ่มชิดกันมากขึ้น แล้วใช้ padding แทน */
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #000;
-    font-weight: 600;
-    font-size: 16px;
-    transition: all 0.5s ease;
-
-    /* --- ส่วนที่เพิ่มขึ้นมาเพื่อขยายพื้นที่ --- */
-    display: block;
-    /* ทำให้ลิงก์มีคุณสมบัติเป็นกล่อง เพื่อให้ padding ทำงานสมบูรณ์ */
-    padding: 20px 10px;
-    /* เพิ่มพื้นที่ บนล่าง 10px, ซ้ายขวา 20px */
-    border-radius: 8px;
-    /* เพิ่มความมนที่มุมเล็กน้อย (เผื่อใส่สีพื้นหลังตอน hover) */
-}
-
-/* --- เอฟเฟกต์ตอนเอาเมาส์ชี้ (Hover) และสถานะ Active --- */
-.nav-links li a:hover,
-.nav-links li a.active {
-    color: #fff;
-    background-color: rgba(255, 123, 0, 0.658);
-}
-
-/* --- ลูกศร Dropdown --- */
-.arrow {
-    font-size: 10px;
-    margin-left: 5px;
-    vertical-align: middle;
-}
-
-/* --- การจัดการ Dropdown --- */
-
-/* 1. กำหนดให้เมนูหลักเป็นจุดอ้างอิง */
-.dropdown {
-    position: relative;
-}
-
-/* 2. ดีไซน์กล่องเมนูย่อย (ปกติจะซ่อนอยู่) */
-.dropdown-menu {
-    display: none;
-    /* ซ่อนไว้ก่อน */
-    position: absolute;
-    /* ลอยอิสระเทียบกับปุ่มแม่ */
-    top: 120%;
-    /* อยู่ใต้ปุ่มแม่พอดี */
-    left: 0;
-    background-color: #fff;
-    /* พื้นหลังสีขาว */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    /* เงาให้ดูมีมิติ */
-    min-width: 250px;
-    /* ความกว้างขั้นต่ำ (ปรับได้ถ้าข้อความยาว) */
-    list-style: none;
-    padding: 10px 0;
-    /* ระยะห่างบนล่างภายในกล่อง */
-    border-radius: 10px;
-    z-index: 1000;
-    /* ให้ลอยอยู่เหนือเลเยอร์อื่นๆ */
-}
-
-/* 3. สั่งให้แสดงเมื่อเอาเมาส์ชี้ที่ .dropdown (Hover) */
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-/* 4. ตกแต่งลิ้งค์ข้างใน Dropdown */
-.dropdown-menu li a {
-    color: #333;
-    /* สีตัวอักษรเข้ม */
-    padding: 10px 20px;
-    /* ระยะห่างให้น่ากด */
-    display: block;
-    font-size: 14px;
-    /* ขนาดตัวอักษรเล็กลงหน่อยเพื่อความสวยงาม */
-    font-weight: 400;
-    /* ตัวธรรมดา ไม่หนา */
-    white-space: nowrap;
-    /* ห้ามตัดบรรทัด (ถ้าข้อความยาวเกินให้ขยายกล่องเอา) */
-}
-
-/* 5. เปลี่ยนสีพื้นหลังเมื่อชี้ลิ้งค์ย่อย */
-.dropdown-menu li a:hover {
-    background-color: #f1f1f1;
-    /* สีเทาอ่อนๆ */
-    color: #F9A848;
-    /* ตัวหนังสือเปลี่ยนเป็นสีส้มธีมหลัก */
-}
-
-/* --- สร้างสะพานล่องหนเชื่อมปุ่มกับเมนู --- */
-.dropdown-menu::before {
-    content: "";
-    display: block;
-    position: absolute;
-    /* ความกว้างเท่ากับตัวเมนู */
-    width: 100%;
-    /* ความสูงของสะพาน (ปรับให้พอดีกับช่องว่างที่มันห่าง) */
-    height: 20px;
-    /* ดันสะพานขึ้นไปข้างบน เพื่อให้อยู่ระหว่างปุ่มกับเมนู */
-    top: -20px;
-    left: 0;
-    /* สีพื้นหลัง (ใส่สีแดงไว้เทสก่อน พอใช้จริงค่อยลบออกหรือเปลี่ยนเป็น transparent) */
-    /* background-color: red; */
-    background-color: transparent;
-}
-
-/* --- แก้ไขเฉพาะ Dropdown ที่ชิดขวา (Performance) --- */
-.dropdown-right .dropdown-menu {
-    left: auto;
-    /* ยกเลิกการยึดขอบซ้าย */
-    right: 0;
-    /* สั่งให้ยึดขอบขวาแทน */
-}
-
-/* =========================================
-   ส่วนที่เพิ่มใหม่: Hamburger & Mobile View
-   ========================================= */
-
-/* ดีไซน์ปุ่ม Hamburger (ปกติซ่อนไว้) */
-.menu-icon {
-    display: none;
     flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
+    min-height: 100vh; /* ดัน Footer ลงล่างสุดเสมอ */
 }
-
-.menu-icon span {
-    width: 25px;
-    height: 3px;
-    background-color: #000;
-    transition: 0.3s;
-}
-
-/* --- Responsive Layout (สำหรับจอมือถือ) --- */
-@media screen and (max-width: 950px) {
-    .navbar {
-        padding: 10px 40px;
-    }
-
-    /* แสดงปุ่ม Burger */
-    .menu-icon {
-        display: flex;
-    }
-
-    /* ซ่อนเมนูหลักไว้ก่อน */
-    #menu-container {
-        display: none;
-        /* ซ่อน */
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background-color: #F9A848;
-        /* ใช้สีเดียวกับ Header */
-        padding-bottom: 20px;
-        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    /* คลาสนี้จะถูก JS เติมเข้ามาตอนกดปุ่ม */
-    #menu-container.show {
-        display: block;
-    }
-
-    /* จัดเรียงเมนูเป็นแนวตั้ง */
-    .nav-links {
-        flex-direction: column;
-        gap: 0;
-        /* รีเซ็ต gap เดิม */
-    }
-
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-    }
-
-    /* ปรับแต่ง Dropdown ในมือถือ */
-    .dropdown-menu {
-        position: static;
-        /* ไม่ให้ลอยแล้ว ให้แทรกเนื้อหาลงมาเลย */
-        width: 100%;
-        box-shadow: none;
-        background-color: #ffb865;
-        /* สีพื้นหลัง Dropdown ให้เข้มขึ้นนิดนึงจะได้แยกออก */
-        display: none;
-        /* ซ่อนไว้ก่อน */
-        padding: 0;
-    }
-
-    /* ในมือถือ ให้แสดง Dropdown เมื่อ Hover (หรือจะเปลี่ยนเป็น Click ก็ได้) */
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-
-    /* ซ่อนสะพานล่องหนในมือถือเพราะไม่จำเป็น */
-    .dropdown-menu::before {
-        display: none;
-    }
-}
-
 /* =========================================
-   4. FOOTER (ส่วนท้ายเว็บ)
+   1. SECONDARY NAVIGATION (แถบเมนูย่อยสีกรมท่า)
    ========================================= */
-footer {
-    background-color: #F9A848;
-    padding: 20px 0;
-    /* Compact size */
-    color: #000;
-    margin-top: auto;
-    font-size: 14px;
-}
-
-/* --- Footer Top (Logo & Social) --- */
-.footer-top {
+.full-width-nav {
+    width: 100%;
+    /* ปรับ margin-top ให้เหมาะสมกับ Header ของคุณ (ถ้า Fixed อาจต้องเผื่อเยอะหน่อย) */
+    margin-top: 80px; 
+    background-color: #1e2b40;
+    padding: 25px 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.footer-logo img {
-    height: 35px;
-    object-fit: contain;
-}
-
-.social-icons a {
-    color: #fff;
-    font-size: 16px;
-    margin-left: 10px;
-    width: 30px;
-    height: 30px;
-    display: inline-flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+}
+
+.nav-button-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-btn {
     text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
-.social-icons a:nth-child(1) {
-    background-color: #1877F2;
+/* สถานะปุ่ม Active (สีส้มสว่าง) */
+.btn-active {
+    background-color: #fcae47; 
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
+.btn-active:hover { background-color: #ffbd66; }
 
-.social-icons a:nth-child(2) {
-    background-color: #E4405F;
+/* สถานะปุ่ม Inactive (สีส้มอมน้ำตาล) */
+.btn-inactive {
+    background-color: #c49250; 
+    color: #1e2b40;
 }
+.btn-inactive:hover { background-color: #d6a15a; }
 
-/* --- Footer Divider --- */
-.footer-line {
-    border: none;
-    border-top: 1px solid #333;
-    margin-bottom: 15px;
-    opacity: 0.3;
-}
+/* =========================================
+   2. PAGE CONTENT LAYOUT (ส่วนเนื้อหา)
+   ========================================= */
 
-/* --- Footer Bottom (Content) --- */
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-.footer-col {
-    flex: 1;
-}
-
-.footer-col h3 {
-    font-weight: 700;
-    margin-bottom: 10px;
-    font-size: 16px;
-    text-transform: uppercase;
-}
-
-.footer-col p {
-    font-size: 13px;
-    line-height: 1.4;
-    margin-bottom: 5px;
-}
-
-/* --- Contact Info --- */
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 8px;
-}
-
-.contact-item i {
-    width: 20px;
-    font-size: 14px;
-    margin-top: 3px;
-}
-
-/* กำหนดกรอบเนื้อหาไม่ให้กว้างเกินไป และอยู่กึ่งกลาง */
-.container {
+/* Container ควบคุมความกว้างเนื้อหา */
+.content-container {
     width: 100%;
     max-width: 1140px;
-    /* จำกัดความกว้างสูงสุด */
     margin: 0 auto;
-    /* จัดกึ่งกลางหน้าจอ */
     padding: 0 20px;
-    /* เว้นขอบซ้ายขวาเล็กน้อย */
     box-sizing: border-box;
-    /* รวม padding ในความกว้าง */
 }
 
-/* กล่องประกาศกรอบส้ม */
+/* --- Announcement Box (กล่องประกาศ) --- */
 .top-announcement {
     border: 3px solid #f2a541;
     border-radius: 15px;
@@ -359,17 +83,18 @@ footer {
     text-align: center;
     background: white;
     max-width: 900px;
-    margin: 30px auto 40px auto;
+    margin: 30px auto 60px auto; /* เว้นล่างเยอะหน่อย */
 }
 
-
+/* --- Dual Degree Section (กล่องข้อความหลัก) --- */
 .dual-section {
     max-width: 900px;
     margin: 0 auto;
     position: relative;
+    padding-bottom: 40px;
 }
 
-/* กล่องtitleสีส้ม */
+/* หัวข้อสีส้ม (ซ้อนอยู่บน) */
 .dual-title {
     background: #f2a541;
     color: white;
@@ -378,35 +103,41 @@ footer {
     padding: 25px 30px;
     border-radius: 15px;
     width: 65%;
-    z-index: 2;
+    position: relative;
+    z-index: 2; /* อยู่บนสุด */
 }
 
-/* กล่องน้ำเงินบทความ */
+/* เนื้อหาสีน้ำเงิน (ซ้อนอยู่ล่าง) */
 .dual-dark {
     background: #1f2f3a;
     color: white;
     padding: 50px 30px 30px 30px;
     border-radius: 10px;
-    margin-top: -20px;
+    margin-top: -20px; /* ดึงขึ้นไปซ้อนกับหัวข้อ */
     line-height: 1.6;
+    position: relative;
+    z-index: 1;
 }
 
-/*กล่องส้ม + 3 ไอคอน */
+/* --- Highlights Section (ไอคอน 3 อัน) --- */
 .dual-highlight {
     background: #f2a541;
     border-radius: 20px;
     padding: 50px 20px;
-    margin: 50px 0;
+    margin: 50px auto;
+    max-width: 1000px; /* กำหนดความกว้าง */
     display: flex;
     justify-content: space-around;
     text-align: center;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .item {
     width: 260px;
 }
 
+/* วงกลมไอคอน (รวมทั้งแบบใส่รูปและใส่ Text) */
 .icon-circle {
     width: 90px;
     height: 90px;
@@ -420,17 +151,24 @@ footer {
     margin: 0 auto 20px;
 }
 
-/* why dual degree */
-.why-wrapper {
-    position: relative;
-    margin-top: 80px;
+.icon-circle img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
 }
 
-/* กล่องส้ม (อยู่หลัง) */
+/* --- Why Section (ทำไมต้องเรียน...) --- */
+.why-wrapper {
+    position: relative;
+    margin: 80px auto;
+    max-width: 900px;
+}
+
+/* หัวข้อสีส้ม (แปะมุมขวาบน) */
 .why-title {
     position: absolute;
-    top: -55px;
-    right: 0px;
+    top: -40px; /* ปรับตำแหน่งให้ลอยขึ้น */
+    right: 0;
     background: #f2a541;
     color: white;
     padding: 18px 45px;
@@ -440,17 +178,17 @@ footer {
     z-index: 1;
 }
 
-/* กล่องน้ำเงิน (อยู่หน้า) */
+/* เนื้อหาสีน้ำเงิน */
 .why-dark {
     position: relative;
     background: #1f2f3a;
     color: white;
     padding: 60px 30px 30px 30px;
     border-radius: 10px;
-    z-index: 2;
+    z-index: 2; /* ให้กล่องเนื้อหาทับส่วนหางของ title */
 }
 
-/* IMAGE SECTION */
+/* --- Image Section (รูปภาพคู่) --- */
 .image-section {
     max-width: 900px;
     margin: 60px auto;
@@ -460,44 +198,38 @@ footer {
 
 .image-section img {
     flex: 1;
+    width: 100%; /* แก้ไขให้ยืดหยุ่น */
     max-width: 50%;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     transition: 0.3s;
+    object-fit: cover;
 }
 
-.icon-circle {
-    width: 90px;
-    height: 90px;
-    background: #1f2f3a;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-}
+/* =========================================
+   3. RESPONSIVE (MEDIA QUERIES)
+   ========================================= */
 
-.icon-circle img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-}
-
-@media (max-width:768px) {
-
+/* Tablet & Mobile (รวมกันเพื่อความกระชับ) */
+@media screen and (max-width: 900px) {
+    /* ปรับหัวข้อ Dual Title */
     .dual-title {
         width: 100%;
-        font-size: 20px;
+        font-size: 22px;
+        text-align: center;
     }
 
     .dual-dark {
         padding: 40px 20px 25px 20px;
+        text-align: left; /* หรือ center แล้วแต่ชอบ */
     }
 
+    /* ปรับ Highlight (ไอคอนเรียงแนวตั้ง) */
     .dual-highlight {
         flex-direction: column;
         align-items: center;
         gap: 40px;
+        width: 90%; /* ให้มีขอบเหลือบ้างในมือถือ */
     }
 
     .item {
@@ -505,90 +237,41 @@ footer {
         max-width: 300px;
     }
 
+    /* ปรับ Why Section */
     .why-title {
-        right: 50%;
-        transform: translateX(50%);
+        position: static; /* ยกเลิกการลอย */
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: -10px; /* ให้เกยกันนิดหน่อย */
+        transform: none;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .why-dark {
+        border-radius: 0 0 10px 10px; /* มนแค่ล่าง */
+        padding-top: 30px;
     }
 
+    /* ปรับรูปภาพ */
     .image-section {
         flex-direction: column;
+        width: 90%;
     }
 
     .image-section img {
-        width: 100%;
+        max-width: 100%;
     }
-
-}
-/* =========================================
-   Full Width Navigation Bar
-   ========================================= */
-
-/* แถบสีกรมท่า กว้าง 100% ชิดขอบซ้ายขวา */
-.full-width-nav {
-    width: 100%;
-    margin-top: 100px;
-    background-color: #1e2b40; /* สีกรมท่าเดียวกับหัวข้ออื่นๆ */
-    padding: 25px 20px; /* ระยะห่างบน-ล่าง 25px, ซ้าย-ขวา 20px */
-    display: flex;
-    justify-content: center; /* จัดให้ปุ่มอยู่ตรงกลางจอ */
-    align-items: center;
-    box-sizing: border-box;
 }
 
-/* กล่องควบคุมปุ่มให้เรียงติดกัน */
-.nav-button-container {
-    display: flex;
-    gap: 15px; /* ระยะห่างระหว่าง 2 ปุ่ม */
-    flex-wrap: wrap; /* ถ้าจอเล็ก ให้ปุ่มปัดตกลงมาบรรทัดใหม่ได้ */
-    justify-content: center;
-}
-
-/* สไตล์พื้นฐานของปุ่ม */
-.nav-btn {
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: 15px 30px;
-    border-radius: 8px; /* ขอบมนนิดๆ แบบในรูป */
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* เงาบางๆ ให้ปุ่มดูลอยขึ้นมา */
-    transition: all 0.3s ease;
-}
-
-/* 🌟 สไตล์ปุ่มที่กำลังเลือก (สีส้มสว่าง) */
-.btn-active {
-    background-color: #fcae47; 
-    color: #ffffff;
-    text-decoration: underline; /* ขีดเส้นใต้ข้อความ */
-    text-underline-offset: 4px; /* ปรับให้เส้นใต้ห่างจากตัวหนังสือนิดนึง */
-}
-
-/* เอฟเฟกต์ตอนเอาเมาส์ชี้ปุ่ม Active */
-.btn-active:hover {
-    background-color: #ffbd66;
-}
-
-/* 🌟 สไตล์ปุ่มที่ไม่ได้เลือก (สีส้มอมน้ำตาล) */
-.btn-inactive {
-    background-color: #c49250; 
-    color: #1e2b40; /* ตัวหนังสือสีกรมท่า */
-}
-
-/* เอฟเฟกต์ตอนเอาเมาส์ชี้ปุ่ม Inactive */
-.btn-inactive:hover {
-    background-color: #d6a15a;
-}
-
-/* =========================================
-   Responsive (มือถือ)
-   ========================================= */
+/* Mobile Small (ปรับปุ่ม Nav) */
 @media screen and (max-width: 600px) {
     .nav-button-container {
-        flex-direction: column; /* ให้ปุ่มเรียงแนวตั้งบนจอมือถือ */
+        flex-direction: column;
         width: 100%;
         gap: 10px;
     }
     .nav-btn {
-        width: 100%; /* ปุ่มกว้างเต็มหน้าจอมือถือ */
+        width: 100%;
     }
 }

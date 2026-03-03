@@ -1,5 +1,5 @@
 /* =========================================
-   1. RESET & GLOBAL STYLES (โครงสร้างหลัก)
+   1. GLOBAL RESET & STRUCTURE
    ========================================= */
 * {
     margin: 0;
@@ -8,19 +8,17 @@
 }
 
 body {
-    font-family: 'Prompt', sans-serif;
-    background-color: #cccccc;
+    background-color: #cccccc; /* สีพื้นหลังหลัก */
+    font-family: 'Pathway Extreme', sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    /* บังคับให้หน้าเว็บสูงเต็มจอเสมอ เพื่อให้ Footer อยู่ล่างสุด */
+    min-height: 100vh; /* ดัน Footer ลงล่างสุดเสมอ */
+    padding-top: 80px; /* เว้นที่ให้ Fixed Navbar */
 }
 
 main {
-    flex: 1;
-    /* ทำให้เนื้อหาตรงกลางขยายตัวดัน Footer ลงไปข้างล่าง */
-    padding-top: 80px;
-    /* เว้นระยะด้านบนหลบ Header ที่ฟิกซ์ไว้ */
+    flex: 1; /* ส่วนเนื้อหาขยายเต็มพื้นที่ */
+    width: 100%;
 }
 
 .container {
@@ -30,635 +28,208 @@ main {
 }
 
 /* =========================================
-   2. HEADER & NAVIGATION
+   1. SECONDARY NAV (ปุ่มเลือกหัวข้อ)
    ========================================= */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #F9A848;
-    padding: 10px 40px;
-    height: 80px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: top 0.3s ease-in-out;
-}
-
-.logo img {
-    height: 50px;
-    object-fit: contain;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #000;
-    font-weight: 600;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    display: block;
-    padding: 15px 10px;
-    border-radius: 8px;
-}
-
-.nav-links li a:hover,
-.nav-links li a.active {
-    color: #fff;
-    background-color: rgba(255, 123, 0, 0.658);
-}
-
-.arrow {
-    font-size: 10px;
-    margin-left: 5px;
-}
-
-/* =========================================
-   3. DROPDOWN MENU
-   ========================================= */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    min-width: 250px;
-    list-style: none;
-    padding: 10px 0;
-    border-radius: 10px;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown-menu li a {
-    color: #333;
-    padding: 10px 20px;
-    display: block;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.dropdown-menu li a:hover {
-    background-color: #f1f1f1;
-    color: #F9A848;
-}
-
-.dropdown-right .dropdown-menu {
-    left: auto;
-    right: 0;
-}
-
-.dropdown-menu::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 20px;
-    top: -20px;
-    left: 0;
-    background-color: transparent;
-}
-
-/* =========================================
-   4. FOOTER
-   ========================================= */
-footer {
-    background-color: #F9A848;
-    padding: 30px 0;
-    color: #000;
-    margin-top: auto;
-    font-size: 14px;
-}
-
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.social-icons a {
-    color: #fff;
-    font-size: 16px;
-    margin-left: 10px;
-    width: 35px;
-    height: 35px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-}
-
-.social-icons a:nth-child(1) {
-    background-color: #1877F2;
-}
-
-.social-icons a:nth-child(2) {
-    background-color: #E4405F;
-}
-
-.social-icons a:nth-child(3) {
-    background-color: rgb(20, 217, 49);
-}
-
-.footer-line {
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-.footer-col h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 10px;
-    gap: 10px;
-}
-
-/* =========================================
-   5. RESPONSIVE (MOBILE VIEW สำหรับ Header & Footer)
-   ========================================= */
-.menu-icon {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-
-.menu-icon span {
-    width: 25px;
-    height: 3px;
-    background-color: #000;
-    transition: 0.3s;
-}
-
-@media (max-width: 950px) {
-    .menu-icon {
-        display: flex;
-    }
-
-    #menu-container {
-        display: none;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background-color: #F9A848;
-        padding-bottom: 20px;
-        flex-direction: column;
-    }
-
-    #menu-container.show {
-        display: block;
-    }
-
-    .nav-links {
-        flex-direction: column;
-    }
-
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-    }
-
-    .dropdown-menu {
-        position: static;
-        width: 100%;
-        background-color: #F9A848;
-        display: none;
-        padding: 0;
-        box-shadow: none;
-    }
-
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-
-    .dropdown-menu li a {
-        color: #000;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .footer-bottom,
-    .footer-top {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .contact-item {
-        justify-content: center;
-    }
-}
-/* =========================================
-   Full Width Navigation Bar
-   ========================================= */
-
-/* รีเซ็ตขอบหน้าจอ (ถ้าเว็บคุณมีขอบขาวๆ กั้นอยู่ ให้นำโค้ดนี้ไปใส่ไว้บนสุดของไฟล์ CSS) */
-body {
-    margin: 0;
-    padding: 0;
-}
-
-/* แถบสีกรมท่า กว้าง 100% ชิดขอบซ้ายขวา */
 .full-width-nav {
     width: 100%;
-    margin-top: 100px;
-    background-color: #1e2b40; /* สีกรมท่าเดียวกับหัวข้ออื่นๆ */
-    padding: 25px 20px; /* ระยะห่างบน-ล่าง 25px, ซ้าย-ขวา 20px */
+    background-color: #1e2b40;
+    padding: 25px 20px;
     display: flex;
-    justify-content: center; /* จัดให้ปุ่มอยู่ตรงกลางจอ */
+    justify-content: center;
     align-items: center;
-    box-sizing: border-box;
+    margin-bottom: 40px; /* ระยะห่างจากเนื้อหาด้านล่าง */
+    /* ถ้ามี Header แบบ Fixed อาจต้องเพิ่ม margin-top ตรงนี้ หรือให้ parentจัดการ */
 }
 
-/* กล่องควบคุมปุ่มให้เรียงติดกัน */
 .nav-button-container {
     display: flex;
-    gap: 15px; /* ระยะห่างระหว่าง 2 ปุ่ม */
-    flex-wrap: wrap; /* ถ้าจอเล็ก ให้ปุ่มปัดตกลงมาบรรทัดใหม่ได้ */
+    gap: 15px;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
-/* สไตล์พื้นฐานของปุ่ม */
 .nav-btn {
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: bold;
     padding: 15px 30px;
-    border-radius: 8px; /* ขอบมนนิดๆ แบบในรูป */
+    border-radius: 8px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* เงาบางๆ ให้ปุ่มดูลอยขึ้นมา */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
-/* 🌟 สไตล์ปุ่มที่กำลังเลือก (สีส้มสว่าง) */
+/* สถานะปุ่ม */
 .btn-active {
-    background-color: #fcae47; 
+    background-color: #fcae47;
     color: #ffffff;
-    text-decoration: underline; /* ขีดเส้นใต้ข้อความ */
-    text-underline-offset: 4px; /* ปรับให้เส้นใต้ห่างจากตัวหนังสือนิดนึง */
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
-/* เอฟเฟกต์ตอนเอาเมาส์ชี้ปุ่ม Active */
-.btn-active:hover {
-    background-color: #ffbd66;
-}
+.btn-active:hover { background-color: #ffbd66; }
 
-/* 🌟 สไตล์ปุ่มที่ไม่ได้เลือก (สีส้มอมน้ำตาล) */
 .btn-inactive {
-    background-color: #c49250; 
-    color: #1e2b40; /* ตัวหนังสือสีกรมท่า */
+    background-color: #c49250;
+    color: #1e2b40;
 }
 
-/* เอฟเฟกต์ตอนเอาเมาส์ชี้ปุ่ม Inactive */
-.btn-inactive:hover {
-    background-color: #d6a15a;
-}
+.btn-inactive:hover { background-color: #d6a15a; }
+
 
 /* =========================================
-   Responsive (มือถือ)
+   2. CONTENT SECTIONS (รวมสไตล์ที่ซ้ำกัน)
    ========================================= */
-@media screen and (max-width: 600px) {
-    .nav-button-container {
-        flex-direction: column; /* ให้ปุ่มเรียงแนวตั้งบนจอมือถือ */
-        width: 100%;
-        gap: 10px;
-    }
-    .nav-btn {
-        width: 100%; /* ปุ่มกว้างเต็มหน้าจอมือถือ */
-    }
-}
-/* =========================================
-   Reset & Page Setup
-   ========================================= */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
-.info-page-wrapper {
-    background-color: #e2e2e2; /* สีเทาอ่อนเป็นพื้นหลังของช่องว่างระหว่างเซกชัน */
-    width: 100%;
-    padding-bottom: 50px;
-}
-
-/* =========================================
-   Section Layouts
-   ========================================= */
+/* Wrapper หลักของแต่ละ Section */
+.content-section, 
+.career-section-wrapper,
 .info-section {
-    width: 100%;
-    margin-bottom: 40px; /* ระยะห่างระหว่างหัวข้อ */
-    padding-top: 40px; 
-}
-
-/* กล่องควบคุมความกว้างเนื้อหาให้อยู่ตรงกลางจอ */
-.content-container {
-    max-width: 1100px; /* ปรับขนาดความกว้างตามต้องการ */
-    margin: 0 auto;
-    padding: 0 20px; /* เผื่อขอบซ้ายขวาในมือถือ */
-    display: flex;
-}
-
-/* ควบคุมตำแหน่งป้ายให้อยู่ซ้ายหรือขวา */
-.flex-start { justify-content: flex-start; }
-.flex-end { justify-content: flex-end; }
-
-/* 🌟 ป้ายหัวข้อสีส้ม */
-.orange-tab {
-    background-color: #fcae47; /* สีเหลืองส้ม */
-    padding: 15px 40px;
-    border-radius: 12px 12px 0 0; /* โค้งแค่มุมบนซ้าย-ขวา */
-    width: fit-content;
-    min-width: 40%; /* ให้กล่องยาวออกมาหน่อยแบบในรูป */
-    text-align: center;
-}
-
-.orange-tab h2 {
-    margin: 0;
-    color: #ffffff;
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
-/* 🌟 พื้นหลังสีกรมท่า (สุดขอบหน้าจอ) */
-.blue-full-bg {
-    width: 100%;
-    background-color: #1e2b40; /* สีกรมท่า */
-    color: #ffffff;
-    padding: 40px 0; /* ระยะห่างเนื้อหาด้านบนและล่าง */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* เพิ่มเงาให้ดูมีมิติ */
-}
-
-.blue-full-bg p {
-    margin: 0;
-    line-height: 1.8;
-    font-size: 1rem;
-    width: 100%;
-}
-
-/* =========================================
-   Layout พิเศษสำหรับ Career Pathway (รูป + รายการ)
-   ========================================= */
-.row-layout {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    align-items: center; /* ให้อยู่กึ่งกลางแนวตั้ง */
-}
-
-.career-image {
-    flex: 1; /* กินพื้นที่ 1 ส่วน */
-}
-
-.career-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    display: block;
-}
-
-.career-list {
-    flex: 1.5; /* กินพื้นที่กว้างกว่ารูปนิดหน่อย */
-}
-
-.career-list ul {
-    margin: 0;
-    padding-left: 20px;
-    line-height: 1.8;
-}
-
-.career-list li {
-    margin-bottom: 8px;
-    font-weight: 500;
-}
-
-/* =========================================
-   Responsive (สำหรับหน้าจอมือถือ)
-   ========================================= */
-@media screen and (max-width: 768px) {
-    .orange-tab {
-        width: 100%; /* ในมือถือให้ป้ายส้มกว้างเต็มกรอบ */
-        border-radius: 8px 8px 0 0;
-    }
-    
-    .row-layout {
-        flex-direction: column; /* ให้รูปและข้อความซ้อนกันเป็นแนวตั้ง */
-    }
-}
-/* ===== กรอบหัวข้อสีส้ม ===== */
-.div-wrapper {
-    width: fit-content;
-    margin: 0 auto 24px;
-    padding: 12px 32px;
-    background-color: #F9B151; /* ส้มใหม่ */
-    border-radius: 20px;
-}
-
-.text-wrapper {
-    font-size: 22px;
-    font-weight: 600;
-    color: #ffffff;
-    text-align: center;
-}
-
-/* ===== กรอบเนื้อหา ===== */
-.frame-wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px;
-    background-color: #213443; /* กรอบข้อความ */
-    border-radius: 24px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-}
-
-.element-disruptive {
-    font-size: 16px;
-    line-height: 1.8;
-    color: #ffffff;
-}
-
-/* ===== Section รูป + อาชีพ ===== */
-.new-about-iot {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-.frame {
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
-}
-
-.rectangle {
-    width: 380px;
-    max-width: 100%;
-    border-radius: 16px;
-    object-fit: cover;
-}
-
-.iot-engineer {
-    flex: 1;
-    font-size: 16px;
-    line-height: 1.8;
-    color: #213443;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .frame {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .rectangle {
-        width: 100%;
-        max-width: 420px;
-    }
-}
-
-/* ===== Section ===== */
-.content-section {
     max-width: 1200px;
-    margin: 100px auto;
+    margin: 0 auto 60px; /* ระยะห่างระหว่าง Section */
     padding: 0 20px;
-
     display: flex;
     flex-direction: column;
 }
 
-/* ===== กล่องส้ม ===== */
-.title-tag {
+/* --- สไตล์หัวข้อสีส้ม --- */
+.title-tag, 
+.career-title, 
+.orange-tab,
+.div-wrapper {
     display: inline-block;
-    background-color: #F4A640;
+    background-color: #F4A640; /* สีส้มมาตรฐาน */
     color: #fff;
-    padding: 30px 50px;
+    padding: 20px 50px;
     border-radius: 20px 20px 0 0;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 700;
+    width: fit-content;
+    text-align: center;
 }
 
+/* จัดตำแหน่งหัวข้อ สลับซ้าย-ขวา (เฉพาะ .content-section) */
+.content-section:nth-child(even) .title-tag { align-self: flex-start; }
+.content-section:nth-child(odd) .title-tag { align-self: flex-end; }
 
-.content-section:nth-child(even) .title-tag {
-    align-self: flex-start;
-}
 
-
-.content-section:nth-child(odd) .title-tag {
-    align-self: flex-end;
-}
-
-/* ===== กล่องน้ำเงิน ===== */
-.content-box {
-    background-color: #213443;
+/* --- สไตล์กล่องเนื้อหาสีน้ำเงิน --- */
+.content-box,
+.career-box,
+.blue-full-bg,
+.frame-wrapper {
+    background-color: #213443; /* สีกรมท่ามาตรฐาน */
     color: #fff;
     padding: 50px;
-    border-radius: 20 20px 20px 20px;
+    border-radius: 20px; /* ถ้าหัวข้ออยู่ด้านบน มุมบนอาจจะถูกทับ */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    font-size: 16px;
+    line-height: 1.8;
+    width: 100%;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-    .title-tag.left,
-    .title-tag.right {
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
-        text-align: center;
-    }
-
-    .content-box {
-        padding-top: 60px;
-    }
-}
-/* ===== Career Section ===== */
-/* ===== Career Pathway Section ===== */
-
-.career-section-wrapper {
-    max-width: 1200px;
-    margin: 120px auto;
-    padding: 0 20px;
+/* ถ้าใช้คู่กับหัวข้อ ให้มุมบนเป็นเหลี่ยมเพื่อให้ต่อกันเนียน */
+.title-tag + .content-box,
+.career-title + .career-box {
+    border-top-left-radius: 0; /* หรือปรับตามตำแหน่งตามต้องการ */
 }
 
-/* หัวข้อส้ม */
-.career-title {
-    display: inline-block;
-    background-color: #F4A640;
-    color: #fff;
-    padding: 25px 50px;
-    font-size: 32px;
-    font-weight: 700;
-    border-radius: 20px 20px 0 0;
-}
+/* =========================================
+   3. INNER LAYOUTS (รูปคู่ข้อความ)
+   ========================================= */
 
-/* กล่องน้ำเงิน */
-.career-box {
-    background-color: #213443;
-    padding: 50px;
-    border-radius: 20px 20px 20px 20px;
-}
-
-/* layout รูป + list */
-.career-flex {
+/* Layout แบบยืดหยุ่น (ใช้ร่วมกันได้หมด) */
+.flex-layout,
+.career-flex,
+.frame,
+.row-layout {
     display: flex;
     gap: 50px;
     align-items: flex-start;
 }
 
-/* รูป */
-.career-image img {
-    width: 420px;
+/* ส่วนรูปภาพ */
+.image-col,
+.career-image,
+.rectangle {
+    flex: 1;
+    max-width: 450px;
+}
+
+.image-col img,
+.career-image img,
+.rectangle img,
+.rectangle { /* กรณี .rectangle เป็น img เลย */
+    width: 100%;
+    height: auto;
     border-radius: 20px;
     object-fit: cover;
+    display: block;
 }
 
-/* รายการ */
+/* ส่วนเนื้อหา/List */
+.text-col,
+.career-list,
+.iot-engineer {
+    flex: 1.5;
+    color: #fff; /* สีขาวเมื่ออยู่ในกล่องน้ำเงิน */
+}
+
+/* ถ้าอยู่ในกล่องขาวหรือพื้นนอก */
+.text-dark { color: #213443; }
+
 .career-list ul {
-    color: #fff;
-    line-height: 1.8;
-    font-size: 16px;
     padding-left: 20px;
 }
+.career-list li {
+    margin-bottom: 10px;
+}
 
-/* ===== Responsive ===== */
+
+/* =========================================
+   4. RESPONSIVE (MEDIA QUERIES) - CONTENT ONLY
+   ========================================= */
+
+/* Mobile Content Layout */
 @media (max-width: 900px) {
-
-    .career-flex {
+    /* ปรับ Layout รูปคู่ข้อความให้เรียงแนวตั้ง */
+    .flex-layout,
+    .career-flex,
+    .frame,
+    .row-layout {
         flex-direction: column;
         align-items: center;
     }
 
-    .career-image img {
+    .image-col, .career-image, .rectangle {
+        max-width: 100%;
         width: 100%;
-        max-width: 500px;
     }
 
-    .career-title {
-        font-size: 26px;
+    /* ปรับหัวข้อ */
+    .title-tag, .career-title {
+        font-size: 20px;
+        padding: 15px 30px;
+        width: 100%; /* หัวข้อเต็มจอในมือถือ */
+        border-radius: 15px 15px 0 0;
     }
+    
+    /* รีเซ็ตตำแหน่งหัวข้อ */
+    .content-section:nth-child(even) .title-tag,
+    .content-section:nth-child(odd) .title-tag {
+        align-self: center;
+    }
+
+    .content-box, .career-box {
+        padding: 30px;
+    }
+}
+
+/* Mobile Small (Nav Buttons) */
+@media (max-width: 600px) {
+    .nav-button-container {
+        flex-direction: column;
+        width: 100%;
+    }
+    .nav-btn { width: 100%; }
 }
