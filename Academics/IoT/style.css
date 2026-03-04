@@ -16,17 +16,18 @@ body{
 
 /* ================= HEADER ================= */
 
-.header{
-    background:linear-gradient(135deg,#233847,#2c4a63);
-    padding:70px 0;
-    text-align:center;
+.header {
+    background-color: #1e2b40;
+    color: #ffffff;
+    text-align: center;
+    padding: 45px;
+    margin-top:-10px;
 }
 
-.header h1{
-    color:#fff;
-    font-size:52px;
-    font-weight:800;
-    letter-spacing:2px;
+.header h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin: 0;
 }
 
 
