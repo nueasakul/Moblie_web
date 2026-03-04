@@ -1,373 +1,352 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* outline: auto; */
+/* ================= RESET ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* Header aca */
-.header {
-    background-color: #1e2b40;
-    color: #ffffff;
-    text-align: center;
-    padding: 45px;
-    margin-top:-10px;
-}
-
-.header h1 {
-    color: white;
-    font-size: 2.5rem;
-    margin: 0;
-}
-
-/* layout */
-.main-section {
-    padding: 60px;
-}
-
-.card-wrapper {
-    display: flex;
-    gap: 40px;
-}
-
-/* 1d white content card */
-.card {
-    flex: 1;
-    background: #d8d8d8;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    align-self: flex-start;
-}
-
-/* title 1d */
-.card-header {
-    background: #eda74a;
-    padding: 35px 25px;
-    position: relative;
-    text-align: center;
-}
-
-.card-header h2 {
-    font-size: 22px;
-    font-weight: 700;
-}
-
-/* 3dots */
-.dots {
-    position: absolute;
-    top: 12px;
-    left: 15px;
-    display: flex;
-    gap: 6px;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
-
-.red {
-    background: #FF0000;
-}
-
-.yellow {
-    background: #FFF70C;
-}
-
-/* content card */
-.card-content {
-    padding: 25px;
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-/* button slideshow */
-.toggle-btn {
-    background: #233847;
-    color: #fff;
-    margin: 22px;
-    padding: 15px 20px;
-    border-radius: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.icon-box {
-    font-size: 22px;
-}
-
-.arrow-circle {
-    width: 40px;
-    height: 40px;
-    background: #f5a623;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(255, 165, 0, 0.7);
-}
-
-/* content flow & arrow */
-.toggle-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-}
-
-.card.active .arrow-circle {
-    transform: rotate(180deg);
-}
-
-.gold-line {
-    height: 3px;
-    background: #eda74a;
-}
-
-/* กล่องที่สไลด์ลงมาตอนกดปุ่ม */
-.fee-box {
-    background: #233847;
-    color: #fff;
-    text-align: center;
-    padding: 30px;
-    border-radius: 0 0 15px 15px;
-}
-
-.fee-box h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.price {
-    font-size: 36px;
-    font-weight: 700;
-}
-
-.fee-box p {
-    font-size: 18px;
-}
-
-/* image */
-.content-image {
-    width: 100%;
-    border-radius: 10px;
-    margin-top: 15px;
-}
-
-/* ivon button */
-.btn-icon {
-    width: 30px;
-    height: px;
-}
-
-.academic-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-}
-
-.right-column {
-    align-self: flex-start;
-}
-
-.course-link {
-    color: #fff;
-    text-decoration: underline;
-    font-weight: 600;
-}
-
-.course-link:hover {
-    opacity: 0.8;
-}
-
-body {
-    margin-top: 90px;
-    font-family: 'Pathway Extreme', sans-serif;
-    background: #FEEFDC;
-    overflow-x: hidden;
-    position: relative;
-}
-
-/* stripe overlay l */
-body::before {
-    content: "";
-
-    top: 0;
-    left: 1;
-    width: 100%;
-    height: 100%;
-    background: url("background-pattern.png") left center no-repeat;
-    background-size: cover;
-    opacity: 0.25;
-    z-index: -1;
-}
-
-/* stripe overlay r */
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background: url("background-pattern.png") right center no-repeat;
-    background-size: cover;
-    opacity: 0.25;
-    z-index: -1;
-}
-
-.program-section {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-/* กล่องหลัก */
-.program-wrapper {
-    margin-bottom: 80px;
-}
-
-/* ตำแหน่งกรอบ */
-
-.top-box .main-img {
-    width: 85%;
-    display: block;
-    margin-left: auto;
-    /* ดันไปขวา */
+body{
+    margin-top:90px;
+    font-family:'Pathway Extreme',sans-serif;
+    background:#f4f6f9;
+    overflow-x:hidden;
 }
 
 
-.bottom-box .main-img {
-    width: 85%;
-    display: block;
-    margin-right: auto;
-    /* ดันไปซ้าย */
+/* ================= HEADER ================= */
+
+.header{
+    background:linear-gradient(135deg,#233847,#2c4a63);
+    padding:70px 0;
+    text-align:center;
 }
 
-/* หัวข้อกรอบ */
-.program-header {
-    position: relative;
-    display: block;
-    width: 35%;
-    padding: 12px 28px;
-    font-weight: 700;
-    font-size: 22px;
-    border: 4px solid #2c3e50;
-    border-radius: 20px;
-}
-
-.top-box .program-header {
-    margin-right: auto;
-}
-
-.bottom-box .program-header {
-    margin-left: auto;
-}
-
-/* เส้นกรอบซ้อน */
-.program-header::before {
-    content: "";
-    position: absolute;
-    top: -8px;
-    left: 3px;
-    right: -8px;
-    bottom: 3px;
-    border: 3px solid #2c3e50;
-    border-radius: 20px;
-    z-index: -1;
-}
-
-/* แถบส้ม */
-.orange-bars {
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    display: flex;
-    align-items: flex-end;
-    gap: 6px;
-}
-
-.orange-bars span {
-    background: #f39c12;
-    display: block;
-}
-
-.orange-bars span:nth-child(1) {
-    width: 8px;
-    height: 3px;
-}
-
-.orange-bars span:nth-child(2) {
-    width: 18px;
-    height: 4px;
-}
-
-.orange-bars span:nth-child(3) {
-    width: 25px;
-    height: 5px;
-}
-
-.orange-bars span:nth-child(4) {
-    width: 35px;
-    height: 6px;
-}
-
-.orange-bars span:nth-child(5) {
-    width: 45px;
-    height: 8px;
-}
-
-.orange-bars span:nth-child(6) {
-    width: 55px;
-    height: 10px;
-}
-
-/* stripe */
-.top-box .main-img,
-.bottom-box .main-img {
-    width: 100%;
-    margin: 0;
-}
-
-/* 1. กล่องแม่: กำหนดจุดอ้างอิง */
-.image-container {
-    position: relative; 
-    width: 100%;
-    max-width: 100%;
-}
-
-/* 3. รูปที่จะทับ: สั่งให้ลอย */
-.overlay-img {
-    position: absolute; /* คำสั่งสำคัญ! */
-    top: 50%;  /* ให้ชิดขอบบนสุดของกล่องแม่ */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    /* การจัดขนาดรูปที่ทับ (เลือกแบบใดแบบหนึ่ง) */
-    width: 90%;  /* ถ้าอยากให้ขยายเต็มทับรูปหลังพอดี */
-    object-fit: cover; /* ป้องกันภาพเบี้ยว */
-    
-    z-index: 2; /* (Optional) มั่นใจว่าอยู่บนสุดเสมอ */
-    opacity: 0.8; /* (Optional) ปรับโปร่งใสเพื่อให้เห็นพื้นหลังหน่อยๆ */
+.header h1{
+    color:#fff;
+    font-size:52px;
+    font-weight:800;
+    letter-spacing:2px;
 }
 
 
-/* RESPONSIVE */
-@media(max-width:900px) {
-    .card-wrapper {
-        flex-direction: column;
-    }
+/* ================= MAIN SECTION ================= */
+
+.main-section{
+    padding:80px 8%;
+}
+
+.card-wrapper{
+    display:flex;
+    gap:50px;
+}
+
+
+/* ================= CARD ================= */
+
+.card{
+    flex:1;
+    background:#ffffff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 20px 45px rgba(0,0,0,0.08);
+    transition:0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+
+/* ================= CARD HEADER ================= */
+
+.card-header{
+    background:#F9B151;
+    padding:40px 30px;
+    position:relative;
+    text-align:center;
+}
+
+.card-header h2{
+    font-size:22px;
+    font-weight:700;
+    line-height:1.4;
+}
+
+
+/* ================= MAC DOTS ================= */
+
+.dots{
+    position:absolute;
+    top:15px;
+    left:20px;
+    display:flex;
+    gap:8px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+}
+
+.red{
+    background:#ff5f56;
+}
+
+.yellow{
+    background:#ffbd2e;
+}
+
+
+/* ================= CARD CONTENT ================= */
+
+.card-content{
+    padding:35px;
+    font-size:16px;
+    line-height:1.9;
+    color:#444;
+}
+
+.content-image{
+    width:100%;
+    border-radius:14px;
+    margin-top:25px;
+}
+
+
+/* ================= TOGGLE BUTTON ================= */
+
+.toggle-btn{
+    background:#213443;
+    color:#fff;
+
+    margin:30px;
+    padding:18px 25px;
+
+    border-radius:20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    cursor:pointer;
+}
+
+.card.active .toggle-btn{
+    border-radius:20px 20px 0 0;
+}
+
+.left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.fa-regular.fa-file{
+    color:white;
+}
+
+.course-link{
+    color:#fff;
+    text-decoration:underline;
+    font-weight:600;
+}
+
+.course-link:hover{
+    opacity:0.8;
+}
+
+
+/* ================= ARROW ================= */
+
+.arrow-circle{
+
+    width:45px;
+    height:45px;
+
+    background:#F9B151;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:0.3s ease;
+
+    box-shadow:0 0 15px rgba(245,166,35,0.6);
+
+}
+
+.arrow-down{
+
+    border:solid white;
+    border-width:0 3px 3px 0;
+
+    display:inline-block;
+
+    padding:4px;
+
+    transform:rotate(45deg);
+
+}
+
+/* rotate when active */
+
+.card.active .arrow-circle{
+    transform:rotate(180deg);
+}
+
+
+/* ================= TOGGLE PANEL ================= */
+
+.toggle-content{
+
+    max-height:0;
+    overflow:hidden;
+
+    background:#213443;
+
+    transition:max-height 0.5s ease;
+
+    margin:0 30px 30px 30px;
+    margin-top:-30px;
+
+    border-radius:0 0 20px 20px;
+}
+
+.gold-line{
+    height:3px;
+    background:#F9B151;
+}
+
+.fee-box{
+    padding:45px 20px;
+    text-align:center;
+    color:#ffffff;
+}
+
+.fee-box h3{
+    font-size:20px;
+    font-weight:400;
+}
+
+.price{
+    font-size:44px;
+    font-weight:800;
+    margin:15px 0;
+}
+
+.fee-box p{
+    font-size:18px;
+}
+
+
+/* ================= PROGRAM SECTION ================= */
+
+.program-section{
+    padding:100px 8%;
+}
+
+.program-wrapper{
+    margin-bottom:120px;
+}
+
+
+/* ================= PROGRAM HEADER ================= */
+
+.program-header{
+
+    position:relative;
+
+    width:50%;
+
+    padding:18px 35px;
+
+    font-weight:700;
+    font-size:22px;
+
+    border:4px solid #213443;
+    border-radius:25px;
+
+    background:#ffffff;
+}
+
+
+/* ================= ORANGE BARS ================= */
+
+.orange-bars{
+
+    position:absolute;
+
+    bottom:12px;
+    right:25px;
+
+    display:flex;
+    gap:6px;
+}
+
+.orange-bars span{
+    background:#F9B151;
+    display:block;
+    height:6px;
+}
+
+.orange-bars span:nth-child(1){width:10px;}
+.orange-bars span:nth-child(2){width:20px;}
+.orange-bars span:nth-child(3){width:30px;}
+.orange-bars span:nth-child(4){width:40px;}
+.orange-bars span:nth-child(5){width:50px;}
+.orange-bars span:nth-child(6){width:60px;}
+
+
+/* ================= IMAGE FRAME ================= */
+
+.image-container{
+
+    background-image:url('img/stripe.JPG');
+    background-size:cover;
+    background-position:center;
+
+    width:100%;
+
+    padding:50px;
+
+    border-radius:12px;
+
+}
+
+.program-img-inside{
+
+    width:100%;
+    height:auto;
+
+    display:block;
+
+    border-radius:8px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+}
+
+.bottom-box .program-header{
+    margin-left:auto;
+    text-align:right;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+.card-wrapper{
+    flex-direction:column;
+}
+
+.program-header{
+    width:100%;
+    font-size:18px;
+}
+
 }

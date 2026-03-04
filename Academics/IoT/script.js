@@ -1,56 +1,84 @@
-// 1. Logic สำหรับการ Scroll (Smart Navbar)
+// ================= SMART NAVBAR =================
+
 let lastScrollTop = 0;
 const navbar = document.getElementById("main-nav");
 
-window.addEventListener("scroll", function () {
+window.addEventListener("scroll", function(){
+
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (scrollTop > lastScrollTop) {
-        // ถ้าเลื่อนลง -> ซ่อน Navbar (ดึงขึ้นไป -80px)
+    if(scrollTop > lastScrollTop){
+        // เลื่อนลง → ซ่อน navbar
         navbar.style.top = "-80px";
-    } else {
-        // ถ้าเลื่อนขึ้น -> แสดง Navbar (กลับมาที่ 0)
+    } 
+    else{
+        // เลื่อนขึ้น → แสดง navbar
         navbar.style.top = "0";
     }
+
     lastScrollTop = scrollTop;
+
 });
 
-// 2. Logic สำหรับ Hamburger Menu
-function toggleMenu() {
+
+// ================= HAMBURGER MENU =================
+
+function toggleMenu(){
+
     const menu = document.getElementById("menu-container");
-    // สลับคลาส 'show' ไปมา
-    if (menu.classList.contains("show")) {
+
+    if(menu.classList.contains("show")){
         menu.classList.remove("show");
-    } else {
+    }
+    else{
         menu.classList.add("show");
     }
-} 
 
-const buttons = document.querySelectorAll(".arrow-circle");
+}
+
+
+// ================= ACCORDION =================
+
+const buttons = document.querySelectorAll(".toggle-btn");
 
 buttons.forEach(button => {
-    button.addEventListener("click", function () {
+
+    button.addEventListener("click", function(){
 
         const currentCard = this.closest(".card");
         const currentContent = currentCard.querySelector(".toggle-content");
 
-        // ปิดการ์ดอื่นก่อน
+
+        // ปิด card อื่นก่อน
         document.querySelectorAll(".card").forEach(card => {
-            if (card !== currentCard) {
+
+            if(card !== currentCard){
+
                 card.classList.remove("active");
+
                 const content = card.querySelector(".toggle-content");
+
                 content.style.maxHeight = null;
+
             }
+
         });
 
-        // toggle อันที่กด
-        if (currentCard.classList.contains("active")) {
+
+        // toggle card ที่กด
+        if(currentCard.classList.contains("active")){
+
             currentCard.classList.remove("active");
             currentContent.style.maxHeight = null;
-        } else {
+
+        }
+        else{
+
             currentCard.classList.add("active");
             currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+
         }
 
     });
+
 });

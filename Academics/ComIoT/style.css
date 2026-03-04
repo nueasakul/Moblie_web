@@ -124,6 +124,10 @@ body {
     background-color: #2a3d5c;
 }
 
+.fa-regular.fa-file{
+    color:white;
+}
+
 .btn-left {
     display: flex;
     align-items: center;
