@@ -7,15 +7,17 @@
 
 /* Header aca */
 .header {
-    background: #233847;
-    padding: 40px 0;
+    background-color: #1e2b40;
+    color: #ffffff;
     text-align: center;
+    padding: 45px;
+    margin-top:-10px;
 }
 
 .header h1 {
-    color: #fff;
-    font-size: 48px;
-    font-weight: 700;
+    color: white;
+    font-size: 2.5rem;
+    margin: 0;
 }
 
 /* layout */

@@ -5,19 +5,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* outline: auto; */
 }
 
 body {
-    background-color: #cccccc; /* สีพื้นหลังหลัก */
+    background-color: #cccccc;
+    /* สีพื้นหลังหลัก */
     font-family: 'Pathway Extreme', sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* ดัน Footer ลงล่างสุดเสมอ */
-    padding-top: 80px; /* เว้นที่ให้ Fixed Navbar */
+    min-height: 100vh;
+    /* ดัน Footer ลงล่างสุดเสมอ */
+    padding-top: 80px;
+    /* เว้นที่ให้ Fixed Navbar */
 }
 
 main {
-    flex: 1; /* ส่วนเนื้อหาขยายเต็มพื้นที่ */
+    flex: 1;
+    /* ส่วนเนื้อหาขยายเต็มพื้นที่ */
     width: 100%;
 }
 
@@ -37,7 +42,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 40px; /* ระยะห่างจากเนื้อหาด้านล่าง */
+    margin-bottom: 40px;
+    /* ระยะห่างจากเนื้อหาด้านล่าง */
     /* ถ้ามี Header แบบ Fixed อาจต้องเพิ่ม margin-top ตรงนี้ หรือให้ parentจัดการ */
 }
 
@@ -67,14 +73,18 @@ main {
     text-underline-offset: 4px;
 }
 
-.btn-active:hover { background-color: #ffbd66; }
+.btn-active:hover {
+    background-color: #ffbd66;
+}
 
 .btn-inactive {
     background-color: #c49250;
     color: #1e2b40;
 }
 
-.btn-inactive:hover { background-color: #d6a15a; }
+.btn-inactive:hover {
+    background-color: #d6a15a;
+}
 
 
 /* =========================================
@@ -82,23 +92,25 @@ main {
    ========================================= */
 
 /* Wrapper หลักของแต่ละ Section */
-.content-section, 
+.content-section,
 .career-section-wrapper,
 .info-section {
     max-width: 1200px;
-    margin: 0 auto 60px; /* ระยะห่างระหว่าง Section */
+    margin: 0 auto 60px;
+    /* ระยะห่างระหว่าง Section */
     padding: 0 20px;
     display: flex;
     flex-direction: column;
 }
 
 /* --- สไตล์หัวข้อสีส้ม --- */
-.title-tag, 
-.career-title, 
+.title-tag,
+.career-title,
 .orange-tab,
 .div-wrapper {
     display: inline-block;
-    background-color: #F4A640; /* สีส้มมาตรฐาน */
+    background-color: #F4A640;
+    /* สีส้มมาตรฐาน */
     color: #fff;
     padding: 20px 50px;
     border-radius: 20px 20px 0 0;
@@ -109,29 +121,42 @@ main {
 }
 
 /* จัดตำแหน่งหัวข้อ สลับซ้าย-ขวา (เฉพาะ .content-section) */
-.content-section:nth-child(even) .title-tag { align-self: flex-start; }
-.content-section:nth-child(odd) .title-tag { align-self: flex-end; }
+.content-section:nth-child(even) .title-tag {
+    align-self: flex-start;
+}
+
+.content-section:nth-child(odd) .title-tag {
+    align-self: flex-end;
+}
 
 
 /* --- สไตล์กล่องเนื้อหาสีน้ำเงิน --- */
 .content-box,
+.content-box-left,
 .career-box,
 .blue-full-bg,
 .frame-wrapper {
-    background-color: #213443; /* สีกรมท่ามาตรฐาน */
+    background-color: #213443;
+    /* สีกรมท่ามาตรฐาน */
     color: #fff;
     padding: 50px;
-    border-radius: 20px; /* ถ้าหัวข้ออยู่ด้านบน มุมบนอาจจะถูกทับ */
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    border-radius: 20px;
+    /* ถ้าหัวข้ออยู่ด้านบน มุมบนอาจจะถูกทับ */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     font-size: 16px;
     line-height: 1.8;
     width: 100%;
+
+}
+.title-tag+.content-box-left {
+    border-top-right-radius: 0;
 }
 
 /* ถ้าใช้คู่กับหัวข้อ ให้มุมบนเป็นเหลี่ยมเพื่อให้ต่อกันเนียน */
-.title-tag + .content-box,
-.career-title + .career-box {
-    border-top-left-radius: 0; /* หรือปรับตามตำแหน่งตามต้องการ */
+.title-tag+.content-box,
+.career-title+.career-box {
+    border-top-left-radius: 0;
+    /* หรือปรับตามตำแหน่งตามต้องการ */
 }
 
 /* =========================================
@@ -159,7 +184,8 @@ main {
 .image-col img,
 .career-image img,
 .rectangle img,
-.rectangle { /* กรณี .rectangle เป็น img เลย */
+.rectangle {
+    /* กรณี .rectangle เป็น img เลย */
     width: 100%;
     height: auto;
     border-radius: 20px;
@@ -172,15 +198,19 @@ main {
 .career-list,
 .iot-engineer {
     flex: 1.5;
-    color: #fff; /* สีขาวเมื่ออยู่ในกล่องน้ำเงิน */
+    color: #fff;
+    /* สีขาวเมื่ออยู่ในกล่องน้ำเงิน */
 }
 
 /* ถ้าอยู่ในกล่องขาวหรือพื้นนอก */
-.text-dark { color: #213443; }
+.text-dark {
+    color: #213443;
+}
 
 .career-list ul {
     padding-left: 20px;
 }
+
 .career-list li {
     margin-bottom: 10px;
 }
@@ -192,6 +222,7 @@ main {
 
 /* Mobile Content Layout */
 @media (max-width: 900px) {
+
     /* ปรับ Layout รูปคู่ข้อความให้เรียงแนวตั้ง */
     .flex-layout,
     .career-flex,
@@ -201,27 +232,38 @@ main {
         align-items: center;
     }
 
-    .image-col, .career-image, .rectangle {
+    .image-col,
+    .career-image,
+    .rectangle {
         max-width: 100%;
         width: 100%;
     }
 
     /* ปรับหัวข้อ */
-    .title-tag, .career-title {
+    .title-tag,
+    .career-title {
         font-size: 20px;
         padding: 15px 30px;
-        width: 100%; /* หัวข้อเต็มจอในมือถือ */
+        width: 100%;
+        /* หัวข้อเต็มจอในมือถือ */
         border-radius: 15px 15px 0 0;
     }
-    
+
     /* รีเซ็ตตำแหน่งหัวข้อ */
     .content-section:nth-child(even) .title-tag,
     .content-section:nth-child(odd) .title-tag {
         align-self: center;
     }
 
-    .content-box, .career-box {
+    .content-box,
+    .career-box {
         padding: 30px;
+        border-radius: 0 0 15px 15px;
+    }
+    .content-box-left
+    {
+        padding: 30px;
+        border-radius: 0 0 15px 15px;
     }
 }
 
@@ -231,5 +273,8 @@ main {
         flex-direction: column;
         width: 100%;
     }
-    .nav-btn { width: 100%; }
+
+    .nav-btn {
+        width: 100%;
+    }
 }

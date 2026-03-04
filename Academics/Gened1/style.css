@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    outline: auto;
+    /* outline: auto; */
 }
 
 body {
@@ -141,25 +141,26 @@ body {
 
 /* Sub-Navigation (แถบเมนูสีกรมท่าภายในหน้า) */
 .nav-bar { 
-    width: 100%;
     background: #223645;
-    padding: 25px 0;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    padding: 25px 0;
 }
 
 .nav-btn {
+    width: 100%;
     background: #dddcdc;
     color: #000000;
     border: none;
-    padding: 18px 150px;
     font-size: 18px;
     border-radius: 20px;
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     text-decoration: none;
+    text-align: center;
+    padding: 20px;
+    margin: 0 20px;
 }
 
 .nav-btn.active {
@@ -373,8 +374,9 @@ footer {
     }
     
     .nav-btn {
-        padding: 15px 30px; /* ลดขนาดปุ่ม Nav ในหน้าเนื้อหา */
         width: 100%; /* ให้เต็มจอในมือถือ */
+        padding: 15px 30px; /* ลดขนาดปุ่ม Nav ในหน้าเนื้อหา */
+        margin: 0;
     }
     
     .nav-bar {

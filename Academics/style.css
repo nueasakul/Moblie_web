@@ -19,8 +19,7 @@ body {
 /* =========================================
    ACADEMIC BANNER SECTION (.aca)
    ========================================= */
-.aca {
-    height: max-content;                
+.aca {            
     background-image: url("a.jpg"); 
     background-size: cover;        
     background-position: center;   
@@ -56,13 +55,14 @@ body {
     -webkit-text-stroke: 1px #213443;  
 }
 
-.option {
+.option {   
     justify-content: center;
     margin-top: 100px;
     height: max-content;
     display: flex;
     flex-wrap: wrap;
 }
+
 .option a {
     text-align: center;
     height: max-content;
@@ -81,7 +81,17 @@ body {
 /* =========================================
    RESPONSIVE สำหรับส่วน .aca
    ========================================= */
+
+@media (max-width: 1300px) {
+    .option {
+        flex-direction: column;
+    }
+
+}
 @media (max-width: 768px) {
+    .option {
+        flex-direction: column;
+    }
 
     .aca h1 {
         font-size: 32px; /* ลดขนาดตัวหนังสือในมือถือ */

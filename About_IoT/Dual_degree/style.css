@@ -11,7 +11,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* ดัน Footer ลงล่างสุดเสมอ */
+    
 }
+
 /* =========================================
    1. SECONDARY NAVIGATION (แถบเมนูย่อยสีกรมท่า)
    ========================================= */
@@ -82,13 +84,13 @@ body {
     padding: 20px;
     text-align: center;
     background: white;
-    max-width: 900px;
+    max-width: 90%;
     margin: 30px auto 60px auto; /* เว้นล่างเยอะหน่อย */
 }
 
 /* --- Dual Degree Section (กล่องข้อความหลัก) --- */
 .dual-section {
-    max-width: 900px;
+    max-width: 90%;
     margin: 0 auto;
     position: relative;
     padding-bottom: 40px;
@@ -125,7 +127,7 @@ body {
     border-radius: 20px;
     padding: 50px 20px;
     margin: 50px auto;
-    max-width: 1000px; /* กำหนดความกว้าง */
+    max-width: 1060px; /* กำหนดความกว้าง */
     display: flex;
     justify-content: space-around;
     text-align: center;
@@ -161,7 +163,7 @@ body {
 .why-wrapper {
     position: relative;
     margin: 80px auto;
-    max-width: 900px;
+    max-width: 1060px;
 }
 
 /* หัวข้อสีส้ม (แปะมุมขวาบน) */
@@ -175,7 +177,7 @@ body {
     font-size: 22px;
     font-weight: 700;
     border-radius: 10px;
-    z-index: 1;
+    z-index: 3;
 }
 
 /* เนื้อหาสีน้ำเงิน */
