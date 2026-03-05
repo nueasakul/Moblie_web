@@ -26,20 +26,14 @@ function toggleMenu() {
     }
 }
 
-
 let commentCount = 2;
-
 function addComment(){
     const input = document.getElementById("commentInput");
     const text = input.value.trim();
-
     if(text === "") return;
-
     const commentList = document.getElementById("commentList");
-
     const newComment = document.createElement("div");
     newComment.className = "comment";
-
     newComment.innerHTML = `
         <div class="avatar"></div>
         <div class="comment-content">
@@ -50,7 +44,6 @@ function addComment(){
             <p>${text}</p>
         </div>
     `;
-
     commentList.appendChild(newComment);
     input.value = "";
     commentCount++;

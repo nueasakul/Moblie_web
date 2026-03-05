@@ -9,9 +9,8 @@
 }
 
 body {
-    background: #d9d9d9; /* สีพื้นหลังของหน้าเนื้อหา */
+    background-color: #ffffff;
     font-family: 'Pathway Extreme', sans-serif; /* ใช้ฟอนต์หลัก */
-    
     /* สำคัญ: ดันเนื้อหาลงมา 100px เพื่อไม่ให้ Header (80px) บัง */
     padding-top: 100px; 
 }
