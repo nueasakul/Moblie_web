@@ -258,8 +258,24 @@ footer {
 
     }
 
+    /* ยกเลิก hover บนมือถือเพื่อป้องกันบัค */
     .dropdown:hover .dropdown-menu {
+        display: none;
+    }
+
+    /* ใช้คลาส active-dropdown ที่เราสั่งด้วย JS แทน */
+    .dropdown.active-dropdown .dropdown-menu {
         display: flex;
+        background-color: rgba(0, 0, 0, 0.05);
+        /* เพิ่มสีพื้นหลังนิดหน่อยให้ดูรู้ว่าเป็นเมนูย่อย */
+        width: 100vw;
+        /* ให้กางเต็มจอซ้ายขวาในมือถือ */
+    }
+
+    /* เพิ่มเติม: ทำให้ลูกศรหมุนเวลาเปิดเมนู (ถ้าต้องการ) */
+    .dropdown.active-dropdown .arrow {
+        transform: rotate(180deg);
+        display: inline-block;
     }
 
     .dropdown-menu li a {
