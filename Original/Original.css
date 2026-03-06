@@ -1,11 +1,11 @@
 /* =========================================
    1. RESET & GLOBAL STYLES (โครงสร้างหลัก)
    =========================================
-*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: auto;
 }
 
 body {
@@ -20,6 +20,7 @@ main {
     flex: 1;
     padding-top: 80px;
 }
+*/
 
 .container {
     max-width: 1200px;
@@ -215,7 +216,7 @@ footer {
     transition: 0.3s;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1080px) {
     .menu-icon {
         display: flex;
     }
@@ -240,7 +241,7 @@ footer {
     }
 
     .nav-links li {
-        width: 100%;
+        width: max-content;
         text-align: center;
     }
 
@@ -251,10 +252,14 @@ footer {
         display: none;
         padding: 0;
         box-shadow: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
     }
 
     .dropdown:hover .dropdown-menu {
-        display: block;
+        display: flex;
     }
 
     .dropdown-menu li a {

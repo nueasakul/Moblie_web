@@ -1,15 +1,17 @@
-// 1. Logic สำหรับการ Scroll (Smart Navbar)
+// Logic สำหรับการ Scroll (Smart Navbar)
 let lastScrollTop = 0;
 const navbar = document.getElementById("main-nav");
-
 window.addEventListener("scroll", function() {
+    // ใช้ Math.max เพื่อป้องกันค่าติดลบจาก Elastic Scrolling ใน iOS
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > lastScrollTop) {
-        // ถ้าเลื่อนลง -> ซ่อน Navbar (ดึงขึ้นไป -80px)
+    scrollTop = Math.max(0, scrollTop); 
+
+    // เพิ่มเงื่อนไข: ถ้าเลื่อนลงเกินความสูง Navbar ถึงจะเริ่มซ่อน
+    if (scrollTop > lastScrollTop && scrollTop > 80) {
+        // เลื่อนลง -> ซ่อน
         navbar.style.top = "-80px"; 
     } else {
-        // ถ้าเลื่อนขึ้น -> แสดง Navbar (กลับมาที่ 0)
+        // เลื่อนขึ้น หรือ อยู่บนสุด -> แสดง
         navbar.style.top = "0";
     }
     lastScrollTop = scrollTop;

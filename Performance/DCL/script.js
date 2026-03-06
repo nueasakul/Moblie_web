@@ -18,39 +18,3 @@ window.addEventListener("load", function () {
     }
 
 });
-
-
-/* =========================================
-   2. SMART NAVBAR (Hide on Scroll Down)
-========================================= */
-let lastScrollTop = 0;
-const navbar = document.getElementById("main-nav");
-
-window.addEventListener("scroll", function () {
-
-    if (!navbar) return; // กัน error ถ้าไม่มี navbar
-
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop && scrollTop > 80) {
-        // เลื่อนลง -> ซ่อน
-        navbar.style.top = "-80px";
-    } else {
-        // เลื่อนขึ้น -> แสดง
-        navbar.style.top = "0";
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
-});
-
-
-/* =========================================
-   3. HAMBURGER MENU
-========================================= */
-function toggleMenu() {
-    const menu = document.getElementById("menu-container");
-
-    if (menu) {
-        menu.classList.toggle("show");
-    }
-}
