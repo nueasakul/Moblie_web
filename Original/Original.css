@@ -241,7 +241,7 @@ footer {
     }
 
     .nav-links li {
-        width: max-content;
+        width: 100%;
         text-align: center;
     }
 
