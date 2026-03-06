@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #ffffff;
+    background-color: #DDDCDC;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -19,7 +19,7 @@ body {
    1. SECONDARY NAVIGATION (แถบเมนูย่อยสีเข้ม)
    ========================================= */
 .nav-bar { 
-    background: #223645;
+    background: #213443;
     display: flex;
     justify-content: center;
     padding: 25px 0;
@@ -146,14 +146,14 @@ body {
 }
 
 /* ปุ่มย้อนกลับ */
-.back-btn {
+.fa-solid.fa-arrow-turn-up {
     position: absolute;
     left: 8%;
     top: 50%;
     transform: translateY(-50%) rotate(-90deg);
-    font-size: 80px;
+    font-size: 40px;
     text-decoration: none;
-    color: #1f3444;
+    color: #213443;
     font-weight: bold;
 }
 
@@ -290,18 +290,16 @@ body {
     }
 
     /* ปรับปุ่มย้อนกลับในหน้า Detail */
-    .back-btn {
+    .fa-solid.fa-arrow-turn-up {
         position: static; /* เลิก fix ตำแหน่ง */
         display: inline-block;
-        transform: none; /* หมุนกลับ */
+        transform: rotate(-90deg); /* หมุนกลับ */
         font-size: 40px; /* ลดขนาด */
         margin-bottom: 20px;
         rotate: 0deg;
     }
     
-    .back-btn::before {
-        content: "< "; /* ใส่สัญลักษณ์แทนการหมุน */
-    }
+
 }
 
 @media (max-width: 768px) {
