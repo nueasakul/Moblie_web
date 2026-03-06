@@ -271,8 +271,6 @@ footer {
         width: 100vw;
         /* ให้กางเต็มจอซ้ายขวาในมือถือ */
     }
-
-    /* เพิ่มเติม: ทำให้ลูกศรหมุนเวลาเปิดเมนู (ถ้าต้องการ) */
     .dropdown.active-dropdown .arrow {
         transform: rotate(180deg);
         display: inline-block;
