@@ -20,19 +20,29 @@ function toggleMenu() {
     menu.classList.toggle("show");
 }
 
-// 3. Mobile Dropdown Logic
+// 3. Mobile Dropdown Logic (แก้ไขใหม่)
 document.querySelectorAll('.dropdown').forEach(item => {
     item.addEventListener('click', function(e) {
+        // เช็คก่อนว่าหน้าจอเล็กไหม
         if (window.innerWidth <= 1080) {
-            // หยุดการทำงานของ Link เพื่อให้เมนูกางออก
-            e.preventDefault(); 
+
+            // ★ จุดสำคัญที่เพิ่มมา: เช็คว่าสิ่งที่กด เป็น "เมนูย่อย" หรือเปล่า?
+            // e.target คือจุดที่นิ้วไปโดนจริงๆ
+            // .closest('.dropdown-menu') เช็คว่าจุดที่โดน อยู่ในกล่อง dropdown-menu หรือไม่
+            if (e.target.closest('.dropdown-menu')) {
+                return; // ถ้าใช่ "เมนูย่อย" ให้จบฟังก์ชันตรงนี้เลย (ปล่อยให้ลิงก์ทำงานปกติ)
+            }
+
+            // ถ้าโค้ดวิ่งมาถึงตรงนี้ แปลว่ากดที่ "หัวข้อหลัก" แน่นอน
+            e.preventDefault(); // ห้ามเปลี่ยนหน้าของหัวข้อหลัก
             
-            // ปิดตัวอื่นก่อนเปิดตัวที่เลือก
+            // สลับ Class เปิด/ปิด
+            this.classList.toggle('active-dropdown');
+            
+            // ปิดตัวอื่นที่เปิดค้างอยู่
             document.querySelectorAll('.dropdown').forEach(other => {
                 if (other !== this) other.classList.remove('active-dropdown');
             });
-
-            this.classList.toggle('active-dropdown');
         }
     });
 });
